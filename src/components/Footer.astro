@@ -36,6 +36,6 @@ import Signature from "./Signature.astro";
   let dateField = document.getElementById("date");
 
   if (dateField) {
-    dateField.textContent = `${new Date().getFullYear()}`;
+    dateField.textContent = new Date().getFullYear().toString();
   }
 </script>
