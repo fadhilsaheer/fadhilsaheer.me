@@ -14,18 +14,24 @@
       width="17"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      ><path
+    >
+      <path
         d="M8.77995 15.1667C12.4618 15.1667 15.4466 12.1819 15.4466 8.5C15.4466 4.8181 12.4618 1.83333 8.77995 1.83333C5.09805 1.83333 2.11328 4.8181 2.11328 8.5C2.11328 12.1819 5.09805 15.1667 8.77995 15.1667Z"
         stroke="currentColor"
         stroke-width="1.16667"
         stroke-linecap="round"
-        stroke-linejoin="round"></path><path
+        stroke-linejoin="round"
+      >
+      </path>
+      <path
         d="M8.77979 4.5V8.5L11.4465 9.83333"
         stroke="currentColor"
         stroke-width="1.16667"
         stroke-linecap="round"
-        stroke-linejoin="round"></path></svg
-    >
+        stroke-linejoin="round"
+      >
+      </path>
+    </svg>
     <span id="time-display">12:34:06</span>
     <span id="timezone-diff" class="uppercase opacity-50">GMT+9</span>
   </p>
@@ -49,10 +55,10 @@
 
     // Calculate time difference in hours - use getTime() for arithmetic
     const userDate = new Date(
-      now.toLocaleString("en-US", { timeZone: userTimezone })
+      now.toLocaleString("en-US", { timeZone: userTimezone }),
     );
     const myDate = new Date(
-      now.toLocaleString("en-US", { timeZone: MY_TIMEZONE })
+      now.toLocaleString("en-US", { timeZone: MY_TIMEZONE }),
     );
     const diffMs = myDate.getTime() - userDate.getTime();
     const diffHours = Math.round(diffMs / (1000 * 60 * 60));
