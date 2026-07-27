@@ -1,3 +1,7 @@
+---
+import ProjectItem from "./ProjectItem.astro";
+---
+
 <section class="container">
   <div>
     <h3
@@ -12,112 +16,49 @@
   </div>
 
   <div class="mt-8 select-none font-light">
-    <a
-      href="https://getbloombit.com"
-      target="_blank"
-      class="block pb-px hover:pb-1 transition-all duration-300 ease-in-out"
-    >
-      <div
-        class="p-4 rounded-t-lg hover:rounded-b-lg bg-macchiato-base hover:bg-macchiato-surface-0 transition-all duration-300 ease-in-out cursor-pointer flex justify-between"
-      >
-        <div>
-          <h3>Bloombit</h3>
-          <p class="font-light text-sm text-macchiato-subtext-0">
-            AI book summary app.
-          </p>
-        </div>
-        <div class="text-right text-xs font-light font-geist-mono">
-          <p class="text-macchiato-subtext-0">MOBILE</p>
-          <p class="text-macchiato-overlay-0">2025</p>
-        </div>
-      </div>
-    </a>
+    <ProjectItem
+      url="https://getbloombit.com"
+      title="Bloombit"
+      description="AI book summary app."
+      platform="MOBILE"
+      year="2025"
+      className="block py-0 pb-px hover:py-0 hover:pb-1"
+      containerClassName="rounded-none rounded-t-lg hover:rounded-b-lg"
+    />
 
-    <a
-      href="https://clayo.ai"
-      target="_blank"
-      class="block py-px hover:py-1 transition-all duration-300 ease-in-out"
-    >
-      <div
-        class="p-4 rounded hover:rounded-lg bg-macchiato-base hover:bg-macchiato-surface-0 transition-all duration-300 ease-in-out cursor-pointer flex justify-between"
-      >
-        <div>
-          <h3>Clayo AI</h3>
-          <p class="font-light text-sm text-macchiato-subtext-0">
-            AI call screener
-          </p>
-        </div>
-        <div class="text-right text-xs font-light font-geist-mono">
-          <p class="text-macchiato-subtext-0">MOBILE</p>
-          <p class="text-macchiato-overlay-0">2025</p>
-        </div>
-      </div>
-    </a>
+    <ProjectItem
+      url="https://clayo.ai"
+      title="Clayo AI"
+      description="AI call screener"
+      platform="MOBILE"
+      year="2025"
+    />
 
-    <a
-      href="https://github.com/hyfic/snorlax"
-      target="_blank"
-      class="block py-px hover:py-1 transition-all duration-300 ease-in-out"
-    >
-      <div
-        class="p-4 rounded hover:rounded-lg bg-macchiato-base hover:bg-macchiato-surface-0 transition-all duration-300 ease-in-out cursor-pointer flex justify-between"
-      >
-        <div>
-          <h3>Snorlax</h3>
-          <p class="font-light text-sm text-macchiato-subtext-0">
-            Local cloud storage
-          </p>
-        </div>
-        <div class="text-right text-xs font-light font-geist-mono">
-          <p class="text-macchiato-subtext-0">DESKTOP</p>
-          <p class="text-macchiato-overlay-0">2023</p>
-        </div>
-      </div>
-    </a>
+    <ProjectItem
+      url="https://github.com/hyfic/snorlax"
+      title="Snorlax"
+      description="Local cloud storage"
+      platform="DESKTOP"
+      year="2023"
+    />
 
-    <a
-      href="https://octoi.github.io/heartbeat/"
-      target="_blank"
-      class="block py-px hover:py-1 transition-all duration-300 ease-in-out"
-    >
-      <div
-        class="p-4 rounded hover:rounded-lg bg-macchiato-base hover:bg-macchiato-surface-0 transition-all duration-300 ease-in-out cursor-pointer flex justify-between"
-      >
-        <div>
-          <h3>Heartbeat</h3>
-          <p class="font-light text-sm text-macchiato-subtext-0">
-            Patient management system
-          </p>
-        </div>
-        <div class="text-right text-xs font-light font-geist-mono">
-          <p class="text-macchiato-subtext-0">DESKTOP</p>
-          <p class="text-macchiato-overlay-0">2022</p>
-        </div>
-      </div>
-    </a>
+    <ProjectItem
+      url="https://octoi.github.io/heartbeat/"
+      title="Heartbeat"
+      description="Patient management system"
+      platform="DESKTOP"
+      year="2022"
+    />
 
-    <a
-      href="https://octoi.github.io/heartbeat/"
-      target="_blank"
-      class="block pt-px hover:pt-1 transition-all duration-300 ease-in-out"
-    >
-      <div
-        class="p-4 rounded-b-lg hover:rounded-lg bg-macchiato-base hover:bg-macchiato-surface-0 transition-all duration-300 ease-in-out cursor-pointer flex justify-between"
-      >
-        <div>
-          <h3>Uchat</h3>
-          <p
-            class="font-geist-mono font-light text-sm text-macchiato-subtext-0"
-          >
-            Chat app
-          </p>
-        </div>
-        <div class="text-right text-xs font-light font-geist-mono">
-          <p class="text-macchiato-subtext-0">WEB</p>
-          <p class="text-macchiato-overlay-0">2021</p>
-        </div>
-      </div>
-    </a>
+    <ProjectItem
+      url="https://octoi.github.io/heartbeat/"
+      title="Uchat"
+      description="Chat app"
+      platform="WEB"
+      year="2021"
+      className="block pt-px hover:pt-1 transition-all duration-300 ease-in-out"
+      containerClassName="rounded-b-lg hover:rounded-lg"
+    />
   </div>
 
   <div class="flex justify-end mt-5">
