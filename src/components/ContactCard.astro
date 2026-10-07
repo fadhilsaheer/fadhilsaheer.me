@@ -17,7 +17,15 @@ const external = url.startsWith("https://");
     rel={external ? "noopener noreferrer" : undefined}
     class="list-link group flex items-center justify-between gap-4"
   >
-    <span class="text-heading">{name}</span>
+    <span class="flex shrink-0 items-center text-heading">
+      <span
+        aria-hidden="true"
+        class="flex w-0 items-center overflow-hidden text-muted opacity-0 transition-[width,margin-right,opacity] duration-200 ease-out-soft group-hover:mr-2 group-hover:w-3.5 group-hover:opacity-100 group-focus-visible:mr-2 group-focus-visible:w-3.5 group-focus-visible:opacity-100"
+      >
+        <slot name="icon" />
+      </span>
+      {name}
+    </span>
     <span class="flex min-w-0 items-center gap-2 text-muted">
       <span class="truncate text-[13px]">{value}</span>
       <Arrow class="size-3 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
