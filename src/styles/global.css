@@ -1,71 +1,110 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
+@import "@fontsource-variable/geist";
 @import "tailwindcss";
 
 @theme {
-  --font-geist: "Geist", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-geist-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
-
-  --color-macchiato-rosewater: #f4dbd6;
-  --color-macchiato-flamingo: #f0c6c6;
-  --color-macchiato-pink: #f5bde6;
-  --color-macchiato-mauve: #c6a0f6;
-  --color-macchiato-red: #ed8796;
-  --color-macchiato-maroon: #ee99a0;
-  --color-macchiato-peach: #f5a97f;
-  --color-macchiato-yellow: #eed49f;
-  --color-macchiato-green: #a6da95;
-  --color-macchiato-teal: #8bd5ca;
-  --color-macchiato-sky: #91d7e3;
-  --color-macchiato-sapphire: #7dc4e4;
-  --color-macchiato-blue: #8aadf4;
-  --color-macchiato-lavender: #b7bdf8;
-
-  --color-macchiato-text: #cad3f5;
-  --color-macchiato-subtext-1: #b8c0e0;
-  --color-macchiato-subtext-0: #9ca4bf;
-
-  --color-macchiato-overlay-2: #939ab7;
-  --color-macchiato-overlay-1: #8087a2;
-  --color-macchiato-overlay-0: #6e738d;
-
-  --color-macchiato-surface-2: #5b6078;
-  --color-macchiato-surface-1: #494d64;
-  --color-macchiato-surface-0: #363a4f;
-
-  --color-macchiato-base: #24273a;
-  --color-macchiato-mantle: #1e2030;
-  --color-macchiato-crust: #181926;
+  --font-geist: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #ffffff;
+  --color-ink: #1a1a1e;
+  --color-heading: #0a0a0a;
+  --color-muted: #6e6e73;
+  --color-subtle: #74747a;
+  --color-rule: #e8e8eb;
+  --color-wash: #f6f6f7;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
   html {
-    scroll-behavior: smooth;
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--color-macchiato-crust);
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-macchiato-base);
-    border-radius: 10px;
+    color-scheme: light;
+    scrollbar-color: #d4d4d8 var(--color-paper);
+    scrollbar-width: thin;
   }
 
   body {
-    background-color: var(--color-macchiato-crust);
-    color: var(--color-macchiato-text);
-    font-family: var(--font-geist);
+    @apply m-0 bg-paper font-geist text-[15px] font-normal leading-[1.6] text-ink antialiased;
   }
 
-  .container {
-    @apply px-5 max-w-xl! w-full;
+  ::selection {
+    background: #e9e9ec;
+    color: var(--color-heading);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-muted);
+    outline-offset: 5px;
+    border-radius: 2px;
+  }
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .text-link {
+    @apply text-heading underline decoration-ink/25 decoration-[1px] underline-offset-4 transition-colors duration-200 hover:decoration-ink;
+  }
+
+  .list-link {
+    @apply -mx-3 block rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-wash focus-visible:bg-wash;
+  }
+
+  .page-copy {
+    @apply space-y-6 text-muted;
+  }
+
+  .trainer-avatar span {
+    image-rendering: pixelated;
+  }
+
+  .reveal {
+    animation: arrive 560ms var(--ease-out-soft) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-list > :nth-child(1) {
+    --reveal-delay: 80ms;
+  }
+  .reveal-list > :nth-child(2) {
+    --reveal-delay: 120ms;
+  }
+  .reveal-list > :nth-child(3) {
+    --reveal-delay: 160ms;
+  }
+  .reveal-list > :nth-child(4) {
+    --reveal-delay: 200ms;
+  }
+  .reveal-list > :nth-child(5) {
+    --reveal-delay: 240ms;
+  }
+  .reveal-list > :nth-child(6) {
+    --reveal-delay: 280ms;
+  }
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

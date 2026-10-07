@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T09:22:41.707233+00:00",
+  "title": "Design System: Fadhil Saheer",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "heading": {
+        "role": "neutral",
+        "displayName": "Heading",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Subtle",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Wash",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(49% 0 0)",
+          "oklch(61% 0 0)",
+          "oklch(72% 0 0)",
+          "oklch(84% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "Modest title",
+        "purpose": "Greeting, page headings, and item titles."
+      },
+      "body": {
+        "displayName": "Reading text",
+        "purpose": "Prose, descriptions, and inline links."
+      },
+      "label": {
+        "displayName": "Metadata",
+        "purpose": "Dates, platforms, and footer."
+      },
+      "contact-value": {
+        "displayName": "Contact value",
+        "purpose": "Compact destination within contact rows."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-soft",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Content entrance easing."
+      },
+      {
+        "name": "arrive",
+        "value": "560ms; opacity 0\u21921; translateY 8px\u21920; blur 3px\u21920",
+        "purpose": "Restrained content entrance; delays 80\u2013280ms in 40ms steps."
+      },
+      {
+        "name": "page-fade",
+        "value": "160ms",
+        "purpose": "Astro page content transition."
+      },
+      {
+        "name": "link-state",
+        "value": "200ms",
+        "purpose": "Link color and arrow interaction."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      }
+    ],
+    "focus": {
+      "outline": "2px solid var(--color-muted)",
+      "offset": "5px",
+      "radius": "2px"
+    },
+    "reducedMotion": "Disable CSS animations, transitions, and view-transition animations; scroll behavior auto.",
+    "tonalRampNote": "Achromatic ramps are synthesized preview metadata, not additional production palette tokens."
+  },
+  "components": [
+    {
+      "name": "Inline link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Navigation embedded in prose.",
+      "html": "<a class=\"ds-link\" href=\"/projects\">projects</a>",
+      "css": ".ds-link{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;color:var(--color-heading,#0a0a0a);text-decoration:underline;text-decoration-color:rgba(26,26,30,.25);text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-color 200ms;background:none;border:0;padding:0;cursor:pointer}.ds-link:hover{text-decoration-color:var(--color-ink,#1a1a1e)}.ds-link:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+    },
+    {
+      "name": "Email copy",
+      "kind": "button",
+      "refersTo": "email-copy",
+      "description": "Inline email-copy button; clipboard logic and live status are provided by the Astro component.",
+      "html": "<button class=\"ds-link\" type=\"button\" aria-label=\"Copy email address fadhil@hyfic.org\">fadhil@hyfic.org</button>",
+      "css": ".ds-link{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;color:var(--color-heading,#0a0a0a);text-decoration:underline;text-decoration-color:rgba(26,26,30,.25);text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-color 200ms;background:none;border:0;padding:0;cursor:pointer}.ds-link:hover{text-decoration-color:var(--color-ink,#1a1a1e)}.ds-link:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+    },
+    {
+      "name": "Return navigation",
+      "kind": "nav",
+      "refersTo": "return-navigation",
+      "description": "Quiet return path on subpages.",
+      "html": "<nav aria-label=\"Back to home\"><a class=\"ds-return\" href=\"/\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 4 2.5 7.5 6 11M3 7.5h6a3.5 3.5 0 0 0 3.5-3.5V3\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>return</a></nav>",
+      "css": ".ds-return{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;display:inline-flex;align-items:center;gap:8px;min-height:32px;color:var(--color-subtle,#74747a);text-decoration:none;transition:color 200ms}.ds-return:hover{color:var(--color-heading,#0a0a0a)}.ds-return:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+    },
+    {
+      "name": "Page heading",
+      "kind": "custom",
+      "refersTo": "page-heading",
+      "description": "Body-sized title and muted introduction.",
+      "html": "<header class=\"ds-heading\"><h1>Projects</h1><p>Things I\u2019ve built, shipped, and learned from.</p></header>",
+      "css": ".ds-heading{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;margin-bottom:28px}.ds-heading h1{font-size:15px;font-weight:500;line-height:1.6;margin:0;color:var(--color-heading,#0a0a0a)}.ds-heading p{margin:4px 0 0;color:var(--color-muted,#6e6e73)}"
+    },
+    {
+      "name": "Project row",
+      "kind": "custom",
+      "refersTo": "list-link",
+      "description": "Borderless linked work entry with date and platform.",
+      "html": "<a class=\"ds-row\" href=\"https://getbloombit.com\"><div class=\"ds-top\"><span class=\"ds-title\">Bloombit<svg width=\"12\" height=\"12\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12 12 4M4.5 4H12v7.5\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-meta\">2025</span></div><p class=\"ds-copy\">AI book summary app.</p><p class=\"ds-meta\" style=\"margin:4px 0 0\">Mobile</p></a>",
+      "css": ".ds-row{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;display:block;border-radius:8px;padding:12px;color:var(--color-heading,#0a0a0a);text-decoration:none;transition:background-color 200ms}.ds-row:hover,.ds-row:focus-visible{background:var(--color-wash,#f6f6f7)}.ds-row:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}.ds-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}.ds-title{display:flex;align-items:center;gap:4px;font-weight:500}.ds-meta{font-size:12px;line-height:1.333333;color:var(--color-subtle,#74747a);font-variant-numeric:tabular-nums}.ds-copy{margin:4px 0 0;color:var(--color-muted,#6e6e73)}.ds-row svg{flex-shrink:0;color:var(--color-subtle,#74747a);transition:transform 200ms}.ds-row:hover svg{transform:translate(2px,-2px)}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+    },
+    {
+      "name": "Contact row",
+      "kind": "custom",
+      "refersTo": "list-link",
+      "description": "Channel name and compact destination on a shared list surface.",
+      "html": "<a class=\"ds-row ds-contact\" href=\"mailto:fadhil@hyfic.org\"><span>Email</span><span class=\"ds-value\"><span>fadhil@hyfic.org</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12 12 4M4.5 4H12v7.5\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></a>",
+      "css": ".ds-row{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;display:block;border-radius:8px;padding:12px;color:var(--color-heading,#0a0a0a);text-decoration:none;transition:background-color 200ms}.ds-row:hover,.ds-row:focus-visible{background:var(--color-wash,#f6f6f7)}.ds-row:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}.ds-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}.ds-title{display:flex;align-items:center;gap:4px;font-weight:500}.ds-meta{font-size:12px;line-height:1.333333;color:var(--color-subtle,#74747a);font-variant-numeric:tabular-nums}.ds-copy{margin:4px 0 0;color:var(--color-muted,#6e6e73)}.ds-row svg{flex-shrink:0;color:var(--color-subtle,#74747a);transition:transform 200ms}.ds-row:hover svg{transform:translate(2px,-2px)}.ds-contact{display:flex;align-items:center;justify-content:space-between;gap:16px}.ds-value{display:flex;align-items:center;gap:8px;min-width:0;color:var(--color-muted,#6e6e73);font-size:13px}.ds-value>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A quiet personal introduction",
+    "overview": "A white, gray, typography-first portfolio follows the user-pinned Lucas Marques reference. Geist, a narrow reading column, inline links, and borderless work lists keep the attention on the person and their work. This confirmed reference takes precedence over the earlier generated seed 76e6068a.\n\nThe small pixel trainer supplies the personal character before the introduction. Motion is restrained: content rises a little through a brief blur, links change quietly, and page changes fade. The implementation remains Astro components with Tailwind; React is confined to the page-mascot island.",
+    "keyCharacteristics": [
+      "White canvas and a compact reading column.",
+      "Geist throughout, with weight and gray tones providing hierarchy.",
+      "Inline navigation and borderless lists.",
+      "A small interactive trainer before the homepage introduction.",
+      "Subtle entrances with reduced-motion support."
+    ],
+    "rules": [],
+    "dos": [
+      "Do keep the trainer first on the homepage and use the existing Avatar wrapper.",
+      "Do use the shared Astro layout, Geist, and the existing Tailwind component patterns.",
+      "Do distinguish headings, body copy, and metadata through weight and the documented gray roles.",
+      "Do keep project, venture, and contact lists borderless at rest.",
+      "Do preserve visible keyboard focus and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don't replace the pinned reference with the earlier seed or another visual direction.",
+      "Don't enlarge the modest headings into display typography.",
+      "Don't add permanent card fills, borders, or shadows to the work lists.",
+      "Don't turn the inline homepage navigation into a large menu or invent new content sections."
+    ]
+  }
+}

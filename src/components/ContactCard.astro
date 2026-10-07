@@ -1,38 +1,26 @@
 ---
+import Arrow from "./Arrow.astro";
+
 interface Props {
   name: string;
   url: string;
   value: string;
 }
-
 const { name, url, value } = Astro.props;
+const external = url.startsWith("https://");
 ---
 
-<a
-  href={url}
-  target="_blank"
-  class="w-full flex flex-col items-center transition-all group hover:bg-macchiato-mantle py-3 hover:opacity-100 group-hover/contacts:opacity-30 duration-500"
->
-  <div class="container flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <slot name="icon" />
-      <p>{name}</p>
-    </div>
-    <div class="flex items-center gap-2">
-      <p>{value}</p>
-      <svg
-        viewBox="0 0 20 21"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-4 text-macchiato-subtext-0 transition-all duration-300 ease-in-out group-hover:-translate-y-0.5"
-      >
-        <path
-          d="M3.75 16.75L16.25 4.25M16.25 4.25H6.875M16.25 4.25V13.625"
-          stroke="currentColor"
-          stroke-width="1.45833"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
-    </div>
-  </div>
-</a>
+<li class="reveal">
+  <a
+    href={url}
+    target={external ? "_blank" : undefined}
+    rel={external ? "noopener noreferrer" : undefined}
+    class="list-link group flex items-center justify-between gap-4"
+  >
+    <span class="text-heading">{name}</span>
+    <span class="flex min-w-0 items-center gap-2 text-muted">
+      <span class="truncate text-[13px]">{value}</span>
+      <Arrow class="size-3 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+    </span>
+  </a>
+</li>

@@ -1,0 +1,63 @@
+---
+interface Props {
+  email?: string;
+}
+const { email = "fadhil@hyfic.org" } = Astro.props;
+---
+
+<email-copy class="relative inline" data-email={email}>
+  <button
+    type="button"
+    class="text-link"
+    aria-label={`Copy email address ${email}`}
+  >
+    {email}
+  </button>
+  <span
+    role="status"
+    class="pointer-events-none absolute -top-8 left-0 whitespace-nowrap rounded bg-ink px-2 py-1 text-xs text-white empty:hidden"
+  ></span>
+</email-copy>
+
+<script>
+  class EmailCopy extends HTMLElement {
+    private controller?: AbortController;
+    private resetTimer?: ReturnType<typeof setTimeout>;
+
+    connectedCallback() {
+      this.controller = new AbortController();
+      this.querySelector("button")?.addEventListener(
+        "click",
+        async () => {
+          const email = this.dataset.email;
+          const status = this.querySelector<HTMLElement>("[role='status']");
+          if (!email || !status) return;
+
+          try {
+            await navigator.clipboard.writeText(email);
+            if (!this.isConnected) return;
+            status.textContent = "Email copied";
+          } catch {
+            // Keep email usable when clipboard permissions are unavailable.
+            window.location.href = `mailto:${email}`;
+            status.textContent = "Open your email app";
+          }
+
+          clearTimeout(this.resetTimer);
+          this.resetTimer = setTimeout(() => {
+            status.textContent = "";
+          }, 2200);
+        },
+        { signal: this.controller.signal },
+      );
+    }
+
+    disconnectedCallback() {
+      this.controller?.abort();
+      clearTimeout(this.resetTimer);
+    }
+  }
+
+  if (!customElements.get("email-copy"))
+    customElements.define("email-copy", EmailCopy);
+</script>

@@ -1,0 +1,96 @@
+---
+import { ClientRouter, fade } from "astro:transitions";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "I'm Fadhil Saheer — a design and full-stack engineer building web and mobile applications. Explore my projects, experience, and ventures.",
+} = Astro.props;
+const pageTitle = title
+  ? `${title} — Fadhil Saheer`
+  : "Fadhil Saheer — Developer & Builder";
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ClientRouter />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="application-name" content="fadhilsaheer" />
+    <meta name="author" content="Fadhil Saheer" />
+    <meta
+      name="keywords"
+      content="Fadhil Saheer,developer,builder,portfolio,React Native,Next.js,TypeScript,web developer,mobile developer,software engineer,tech explorer"
+    />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <meta name="creator" content="Fadhil Saheer" />
+    <meta name="publisher" content="Fadhil Saheer" />
+    <meta name="category" content="Technology" />
+    <link rel="canonical" href={canonical} />
+    <meta
+      name="format-detection"
+      content="telephone=no, address=no, email=no"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="FADHIL" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta property="og:site_name" content="Fadhil Saheer" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://fadhilsaheer.me/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fadhil Saheer" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@fadhilsaheer" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://fadhilsaheer.me/og.png" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <!--
+      THESIS: A personal introduction with inline paths into real work; a quiet alternative to a long portfolio feed.
+      OWN-WORLD: White, near-black, muted gray, Geist, narrow prose, borderless lists.
+      STORY: Meet Fadhil through his trainer, explore projects and experience, then get in touch.
+      FIRST VIEWPORT: Small trainer first, modest greeting and linked paragraphs in a 440px column; time and domain below.
+      FORM: User-pinned Lucas Marques reference overrides seed 76e6068a.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-paper focus:px-3 focus:py-2"
+    >
+      Skip to content
+    </a>
+    <div class="mx-auto flex min-h-svh w-full max-w-[560px] flex-col px-6 pb-8 pt-12 sm:px-[60px] sm:pb-9 sm:pt-[88px]">
+      <main
+        id="content"
+        tabindex="-1"
+        class="outline-none"
+        transition:name="page-content"
+        transition:animate={fade({ duration: "160ms" })}
+      >
+        {title && <Header />}
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

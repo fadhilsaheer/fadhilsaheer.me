@@ -2,23 +2,10 @@
 import ExperienceItem from "./ExperienceItem.astro";
 ---
 
-<section class="container">
-  <div>
-    <h3
-      class="font-geist-mono font-light text-macchiato-subtext-0 text-xs tracking-wider"
-    >
-      EXPERIENCE
-    </h3>
-    <p class="mt-4 text-macchiato-subtext-0 font-light">
-      In the last 4 years, I&apos;ve worked on everything from startup products
-      to enterprise-level platforms. Here&apos;s a snapshot of my journey so
-      far.
-    </p>
-  </div>
-
-  <div class="mt-8 space-y-5 group/experience">
+<section aria-label="Work experience">
+  <ul class="space-y-9 reveal-list">
     <ExperienceItem
-      period="2023 - 2025"
+      period="2023 — 2025"
       title="Frontend Engineer"
       company="Webcoffee"
       companyUrl="https://webcoffee.in"
@@ -26,7 +13,7 @@ import ExperienceItem from "./ExperienceItem.astro";
       description="Focused on building responsive, user-friendly web apps with TypeScript and Next.js for diverse client projects."
     />
     <ExperienceItem
-      period="2022 - 2023"
+      period="2022 — 2023"
       title="Software Engineer"
       company="ClusterDev"
       companyUrl="https://clusterdev.net"
@@ -34,12 +21,12 @@ import ExperienceItem from "./ExperienceItem.astro";
       description="Worked on diverse frontend and full-stack projects using TypeScript, React, Node.js, and PostgreSQL, driving R&D and product innovation."
     />
     <ExperienceItem
-      period="2022 - 2022"
+      period="2022"
       title="Software Engineer"
       company="Entvin (YC S22)"
       companyUrl="https://entvin.com"
       companyLogo="/company/entvin.png"
       description="Developed secure onboarding and scalable systems, working with the founding team to build the startup's technical backbone."
     />
-  </div>
+  </ul>
 </section>

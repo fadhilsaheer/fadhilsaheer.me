@@ -2,35 +2,25 @@
 import VentureCard from "./VentureCard.astro";
 ---
 
-<section class="w-full flex flex-col items-center">
-  <div class="container">
-    <h3
-      class="font-geist-mono font-light text-macchiato-subtext-0 text-xs tracking-wider"
-    >
-      VENTURES
-    </h3>
-  </div>
-
-  <div class="w-full mt-5 group/ventures">
+<section aria-label="Ventures">
+  <ul class="space-y-3 reveal-list">
     <VentureCard
       name="Bloombit"
       description="AI book summary app"
       url="https://getbloombit.com"
       logo="/venture/bloombit.png"
     />
-
     <VentureCard
       name="Clayo AI"
       description="AI call screener"
       url="https://clayo.ai"
       logo="/venture/clayo.png"
     />
-
     <VentureCard
       name="Hyfic"
       description="Software agency"
       url="https://hyfic.github.io"
       logo="/venture/hyfic.png"
     />
-  </div>
+  </ul>
 </section>

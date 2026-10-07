@@ -1,0 +1,18 @@
+---
+import { Mascot } from "page-mascot";
+
+interface Props {
+  size?: number;
+}
+
+const { size = 128 } = Astro.props;
+---
+
+<Mascot
+  client:load
+  directions="/mascots/trainer-directions.webp"
+  reactions="/mascots/trainer-reactions.webp"
+  size={size}
+  className="trainer-avatar"
+  label="Fadhil's pixel trainer"
+/>

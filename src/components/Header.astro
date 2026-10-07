@@ -1,87 +1,14 @@
-<header class="container flex items-center justify-between">
-  <p
-    class="font-geist-mono font-light text-macchiato-subtext-0 text-xs select-none"
+---
+import Arrow from "./Arrow.astro";
+---
+
+<nav aria-label="Back to home" class="mb-7 reveal">
+  <a
+    href="/"
+    class="inline-flex min-h-8 items-center gap-2 text-subtle transition-colors duration-200 hover:text-heading"
+    aria-label="Return to the home page"
   >
-    EST. 2006
-  </p>
-
-  <p
-    class="font-geist-mono font-light text-macchiato-subtext-0 text-xs select-none flex items-center gap-2 tracking-wider"
-  >
-    <svg
-      viewBox="0 0 17 17"
-      fill="none"
-      width="17"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M8.77995 15.1667C12.4618 15.1667 15.4466 12.1819 15.4466 8.5C15.4466 4.8181 12.4618 1.83333 8.77995 1.83333C5.09805 1.83333 2.11328 4.8181 2.11328 8.5C2.11328 12.1819 5.09805 15.1667 8.77995 15.1667Z"
-        stroke="currentColor"
-        stroke-width="1.16667"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-      </path>
-      <path
-        d="M8.77979 4.5V8.5L11.4465 9.83333"
-        stroke="currentColor"
-        stroke-width="1.16667"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-      </path>
-    </svg>
-    <span id="time-display">12:34:06</span>
-    <span id="timezone-diff" class="uppercase opacity-50">GMT+9</span>
-  </p>
-</header>
-
-<script>
-  const MY_TIMEZONE = "Asia/Kolkata";
-
-  function updateTimeDifference() {
-    const now = new Date();
-    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-    // Get my time in 24-hour format with seconds
-    const myTimeStr = now.toLocaleTimeString("en-US", {
-      timeZone: MY_TIMEZONE,
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
-
-    // Calculate time difference in hours - use getTime() for arithmetic
-    const userDate = new Date(
-      now.toLocaleString("en-US", { timeZone: userTimezone }),
-    );
-    const myDate = new Date(
-      now.toLocaleString("en-US", { timeZone: MY_TIMEZONE }),
-    );
-    const diffMs = myDate.getTime() - userDate.getTime();
-    const diffHours = Math.round(diffMs / (1000 * 60 * 60));
-
-    // Format timezone difference
-    let diffText;
-    if (diffHours === 0) {
-      diffText = "(same time)";
-    } else if (diffHours > 0) {
-      diffText = `(+${diffHours}h)`;
-    } else {
-      diffText = `(${diffHours}h)`;
-    }
-
-    // Use optional chaining with proper null handling
-    const timeDisplay = document.getElementById("time-display");
-    const timezoneDiff = document.getElementById("timezone-diff");
-
-    if (timeDisplay) timeDisplay.textContent = myTimeStr;
-    if (timezoneDiff) timezoneDiff.textContent = diffText;
-  }
-
-  // Update immediately and then every second
-  updateTimeDifference();
-  setInterval(updateTimeDifference, 1000);
-</script>
+    <Arrow direction="back" />
+    <span>return</span>
+  </a>
+</nav>
