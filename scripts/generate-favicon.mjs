@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import sharp from "sharp";
 
 const output = new URL("../public/", import.meta.url);
@@ -53,7 +53,6 @@ function portrait(character, offset = 0, raised = 0, wave = 0) {
 
 await mkdir(new URL("favicons/", output), { recursive: true });
 const resting = portrait("snorlax");
-await writeFile(new URL("favicon.svg", output), resting);
 await sharp(Buffer.from(resting))
   .resize(size, size)
   .png()

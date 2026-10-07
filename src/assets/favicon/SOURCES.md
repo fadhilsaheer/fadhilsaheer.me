@@ -7,6 +7,6 @@ Original Pokémon artwork, mirrored by PokeAPI:
 
 Pokémon character artwork belongs to its respective rights holders. The repository's code license does not grant ownership of these images.
 
-The generator embeds these local files and uses SVG clipping and shoulder rotation to animate the forelimbs. The head and facial artwork are not redrawn.
+The active favicon uses `pokemon-front-rig.png`, generated from these references to provide straight-on portraits and isolated paws. It is a generated adaptation, not unmodified official artwork.
 
-The active favicon uses `pokemon-front-rig.png`, generated from these references to provide straight-on portraits and isolated paws. It is a generated adaptation, not unmodified official artwork. The earlier source images are retained as references.
+`scripts/generate-favicon.mjs` uses this atlas with SVG clipping and shoulder rotation to generate the PNG favicon, Apple touch icon, and animated sprite sheet. The original reference URLs above preserve provenance; unused local reference copies and earlier drafts have been removed.
