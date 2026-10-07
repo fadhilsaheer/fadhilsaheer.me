@@ -5,7 +5,7 @@ import ProjectCard from "./projects/ProjectCard.astro";
 ---
 
 <section aria-label="Projects">
-  <ul class="grid grid-cols-1 gap-x-4 gap-y-8 min-[360px]:grid-cols-2 reveal-list">
+  <ul class="project-grid grid grid-cols-1 gap-x-4 gap-y-8 min-[360px]:grid-cols-2 reveal-list">
     <ProjectCard
       url="https://antonvideo.app"
       title="Anton Video"
@@ -62,7 +62,7 @@ import ProjectCard from "./projects/ProjectCard.astro";
     >
       More projects
     </h2>
-    <ul class="space-y-2 reveal-list">
+    <ul class="continuous-list space-y-2 reveal-list [--item-gap:8px]">
       <ProjectItem
         url="https://hyfic.org/openvia/"
         title="OpenVia"

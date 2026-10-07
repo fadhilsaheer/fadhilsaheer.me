@@ -108,6 +108,44 @@
     @apply -mx-3 block rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-wash focus-visible:bg-wash;
   }
 
+  /* Extend hit areas halfway into each gutter without moving visible content.
+     Adjacent targets meet at the midpoint, so no link overlaps its neighbor. */
+  .continuous-list > li > .list-link {
+    position: relative;
+  }
+  .continuous-list > li > .list-link::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--item-gap) / -2) 0;
+  }
+  .project-grid > li > .project-card::after {
+    content: "";
+    position: absolute;
+    inset: -16px 0;
+  }
+  @media (min-width: 360px) {
+    .project-grid > li > .project-card::after {
+      inset-inline: -8px;
+    }
+  }
+  /* Experience rows have inline links: extend only their outer hover region. */
+  .experience-list > li {
+    position: relative;
+  }
+  .experience-list > li::before,
+  .experience-list > li::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    height: 18px;
+  }
+  .experience-list > li::before {
+    bottom: 100%;
+  }
+  .experience-list > li::after {
+    top: 100%;
+  }
+
   /* Animate the inner content so entrance animations retain their own opacity. */
   @media (hover: hover) and (pointer: fine) {
     .experience-list:has(> li:hover)
