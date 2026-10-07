@@ -23,6 +23,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+    />
     <ClientRouter />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
@@ -61,13 +67,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://fadhilsaheer.me/og.png" />
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link id="site-favicon" rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script>
+      import "../scripts/favicon";
+    </script>
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <!--
       THESIS: A personal introduction with inline paths into real work; a quiet alternative to a long portfolio feed.
-      OWN-WORLD: White, near-black, muted gray, Geist, narrow prose, borderless lists.
+      OWN-WORLD: White, near-black, muted gray, DM Sans, narrow prose, borderless lists.
       STORY: Meet Fadhil through his trainer, explore projects and experience, then get in touch.
       FIRST VIEWPORT: Small trainer first, modest greeting and linked paragraphs in a 440px column; time and domain below.
       FORM: User-pinned Lucas Marques reference overrides seed 76e6068a.

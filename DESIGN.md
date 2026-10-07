@@ -11,22 +11,22 @@ colors:
   preview-stage: "rgba(0, 0, 0, 0.035)"
 typography:
   title:
-    fontFamily: '"Geist Variable", ui-sans-serif, system-ui, sans-serif'
+    fontFamily: '"DM Sans", ui-sans-serif, system-ui, sans-serif'
     fontSize: "15px"
     fontWeight: 500
     lineHeight: 1.6
   body:
-    fontFamily: '"Geist Variable", ui-sans-serif, system-ui, sans-serif'
+    fontFamily: '"DM Sans", ui-sans-serif, system-ui, sans-serif'
     fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: '"Geist Variable", ui-sans-serif, system-ui, sans-serif'
+    fontFamily: '"DM Sans", ui-sans-serif, system-ui, sans-serif'
     fontSize: "12px"
     fontWeight: 400
     lineHeight: 1.333333
   contact-value:
-    fontFamily: '"Geist Variable", ui-sans-serif, system-ui, sans-serif'
+    fontFamily: '"DM Sans", ui-sans-serif, system-ui, sans-serif'
     fontSize: "13px"
     fontWeight: 400
     lineHeight: 1.6
@@ -72,13 +72,13 @@ components:
 
 **Creative North Star: "A quiet personal introduction"**
 
-A white, gray, typography-first portfolio follows the user-pinned Lucas Marques reference. Geist, a narrow reading column, inline links, and borderless work lists keep the attention on the person and their work. This confirmed reference takes precedence over the earlier generated seed 76e6068a.
+A white, gray, typography-first portfolio follows the user-pinned Lucas Marques reference. DM Sans, a narrow reading column, inline links, and borderless work lists keep the attention on the person and their work. This confirmed reference takes precedence over the earlier generated seed 76e6068a.
 
 The small pixel trainer supplies the personal character before the introduction. Motion is restrained: content rises a little through a brief blur, links change quietly, and page changes fade. The implementation remains Astro components with Tailwind; React is confined to the page-mascot island.
 
 **Key Characteristics:**
 - White canvas and a compact reading column.
-- Geist throughout, with weight and gray tones providing hierarchy.
+- DM Sans throughout, with weight and gray tones providing hierarchy.
 - Inline navigation and borderless lists.
 - A small interactive trainer before the homepage introduction.
 - Subtle entrances with reduced-motion support.
@@ -100,7 +100,7 @@ The global stylesheet also declares an unused rule color; it is deliberately exc
 
 ## Typography
 
-Geist Variable is the only typeface, with the system sans-serif fallback stack recorded above. The greeting, page titles, and item titles remain the same size as prose. Medium weight provides their hierarchy; no display-size role exists.
+DM Sans is the only typeface, with the system sans-serif fallback stack recorded above. The greeting, page titles, and item titles remain the same size as prose. Medium weight provides their hierarchy; no display-size role exists.
 
 Body paragraphs use the muted role. Dates and platform labels use the compact label role; contact values have their own intermediate size. Dates and the live clock use tabular numerals. Inline links have no visible underline at rest. A fine underline with a four-pixel offset appears on hover or keyboard focus. Inline external links reveal a compact 10px outward arrow in muted text gray (#6e6e73), with a light gray (#cccccc) underline; email buttons reveal a copy icon beside their labels in the same states, using a 200ms width/opacity transition.
 
@@ -144,7 +144,7 @@ There are no input fields, filled action buttons, or tag/chip components in the 
 
 ### Do:
 - Do keep the trainer first on the homepage and use the existing Avatar wrapper.
-- Do use the shared Astro layout, Geist, and the existing Tailwind component patterns.
+- Do use the shared Astro layout, DM Sans, and the existing Tailwind component patterns.
 - Do distinguish headings, body copy, and metadata through weight and the documented gray roles.
 - Do keep project, venture, and contact lists borderless at rest.
 - Do preserve visible keyboard focus and reduced-motion behavior.
@@ -170,3 +170,5 @@ Project titles use locally hosted 16px brand icons (decorative, alongside the na
 Project-grid year labels occupy a fixed clipped 16px-high slot. On card hover or keyboard focus, the year slides upward out of view while a muted external arrow rises from below. Both use base-state 300ms transform transitions, reversing on exit without layout shift.
 
 Adjacent list and project-grid hit areas meet halfway through visible gutters using transparent pseudo-elements, preserving all visual spacing and hover backgrounds. Project links fill their grid row height, covering whitespace from unequal caption heights. Experience rows extend their hover regions into the 36px gaps while keeping only company links clickable. Keep section boundaries and inline prose links separate.
+
+The favicon is Snorlax peeking through a white circle. `public/favicon.svg` is the editable master; `scripts/generate-favicon.mjs` generates the static PNG, Apple touch icon, and a 13-frame sprite. `src/scripts/favicon.ts` holds the up pose for 6.5 seconds, then dips and rises over 1.6 seconds. Hidden tabs and reduced-motion users receive the static up pose; Astro navigation resets the cycle. Browser favicon repaint behavior can vary.

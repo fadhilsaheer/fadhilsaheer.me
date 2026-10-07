@@ -1,8 +1,7 @@
-@import "@fontsource-variable/geist";
 @import "tailwindcss";
 
 @theme {
-  --font-geist: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-dm-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --color-paper: #ffffff;
   --color-ink: #1a1a1e;
   --color-heading: #0a0a0a;
@@ -22,7 +21,7 @@
   }
 
   body {
-    @apply m-0 bg-paper font-geist text-[15px] font-normal leading-[1.6] text-ink antialiased;
+    @apply m-0 bg-paper font-dm-sans text-[15px] font-normal leading-[1.6] text-ink antialiased;
   }
 
   ::selection {
