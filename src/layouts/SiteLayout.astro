@@ -67,7 +67,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://fadhilsaheer.me/og.png" />
-    <link id="site-favicon" rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link
+      id="site-favicon"
+      rel="icon"
+      href="/favicon.png"
+      type="image/png"
+      sizes="128x128"
+    />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script>
       import "../scripts/favicon";
@@ -94,11 +100,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       transition:name="page-content"
       transition:animate={fade({ duration: "160ms" })}
     >
-      <main
-        id="content"
-        tabindex="-1"
-        class="outline-none"
-      >
+      <main id="content" tabindex="-1" class="outline-none">
         {title && <Header />}
         <slot />
       </main>

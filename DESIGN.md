@@ -136,7 +136,7 @@ Project thumbnail artwork is clipped to a 10px rounded rectangle with a permanen
 - **Experience entry:** compact date, medium-weight role and linked company with a small inline logo, then muted descriptive prose. Entries have no enclosing surface.
 - **Venture row:** small existing logo, stacked title and description, and a trailing external arrow. The whole row receives the shared list interaction.
 - **Contact row:** heading-colored channel name and a right-aligned muted value with arrow. Long values truncate within the row.
-- **Footer:** subtle live India time and domain link, separated across the column and able to wrap.
+- **Footer:** subtle live India time with a visitor-relative timezone label (“same time” or a signed hour difference), tabular clock digits, and domain link, separated across the column and able to wrap.
 
 There are no input fields, filled action buttons, or tag/chip components in the implemented system.
 
@@ -171,4 +171,4 @@ Project-grid year labels occupy a fixed clipped 16px-high slot. On card hover or
 
 Adjacent list and project-grid hit areas meet halfway through visible gutters using transparent pseudo-elements, preserving all visual spacing and hover backgrounds. Project links fill their grid row height, covering whitespace from unequal caption heights. Experience rows extend their hover regions into the 36px gaps while keeping only company links clickable. Keep section boundaries and inline prose links separate.
 
-The favicon is Snorlax peeking through a white circle. `public/favicon.svg` is the editable master; `scripts/generate-favicon.mjs` generates the static PNG, Apple touch icon, and a 13-frame sprite. `src/scripts/favicon.ts` holds the up pose for 6.5 seconds, then dips and rises over 1.6 seconds. Hidden tabs and reduced-motion users receive the static up pose; Astro navigation resets the cycle. Browser favicon repaint behavior can vary.
+The favicon uses close-up front-facing Pokémon portraits of Snorlax and Pikachu, with only their heads, shoulders, and upper chest visible. `scripts/generate-favicon.mjs` generates 200 antialiased 128px frames: each character rises with its paw down, pauses, raises its paw, waves twice, lowers the paw, pauses again, and moves entirely below the canvas. The generated pokemon-front-rig.png atlas uses the original character artwork as reference. Both faces and shoulders point straight forward throughout; separate paw layers rotate independently. Sources are recorded in src/assets/favicon/SOURCES.md. A brief fully transparent pause separates each exit from the next character’s entrance. Faces retain their shape throughout. The default icon is upright Snorlax. `src/scripts/favicon.ts` updates frames every 40ms, pausing on hidden tabs and respecting reduced motion. Generated PNG, SVG fallback, Apple touch icon, and sprite stay in public. Browser favicon repaint behavior can vary.
