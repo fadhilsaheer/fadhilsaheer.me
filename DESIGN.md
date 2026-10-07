@@ -8,7 +8,7 @@ colors:
   muted: "#6e6e73"
   subtle: "#74747a"
   wash: "#f6f6f7"
-  preview-stage: "rgba(0, 0, 0, 0.035)"
+  preview-stage: "#f6f6f6"
 typography:
   title:
     fontFamily: '"DM Sans", ui-sans-serif, system-ui, sans-serif'
@@ -114,7 +114,7 @@ The homepage links inline to projects, experience, ventures, and contact. Each o
 
 ## Elevation & Depth
 
-The surrounding interface remains flat. Project SVG illustrations alone use soft internal drop shadows: `0 5px 5px rgb(26 26 30 / 5%)` on illustration objects and `0 4px 3px rgb(26 26 30 / 6%)` on book artwork; these do not elevate the linked cards themselves. Whitespace and text tone separate content. List surfaces are transparent at rest and acquire the wash color on hover or keyboard focus; they are not permanent cards.
+The surrounding interface remains flat. Project SVG illustrations alone use soft internal drop shadows: `0 2px 2px rgb(0 0 0 / 2%)` on illustration objects and book artwork; these do not elevate the linked cards themselves. Whitespace and text tone separate content. List surfaces are transparent at rest and acquire the wash color on hover or keyboard focus; they are not permanent cards.
 
 Entrances last 560ms with the soft ease recorded in the sidecar, moving from 8px below with 3px blur and zero opacity to the settled state. List delays range from 80ms to 280ms in 40ms increments. Page transitions fade the content and footer together over 160ms. The footer also joins the entrance sequence with a 240ms delay. Link transitions last 200ms; external arrows move 2px up and right on row hover. Reduced-motion CSS removes animations and transitions, including view transitions.
 
@@ -129,7 +129,7 @@ Project thumbnail artwork is clipped to a 10px rounded rectangle with a permanen
 - **Email copy:** an inline text button styled as a link. A compact dark status appears above it after copying; a clipboard failure opens the email app. The status clears after 2200ms and uses an accessible live status role.
 - **Return navigation:** a subtle text link with a small curved back arrow, eight-pixel gap, and a minimum height of 32px. Hover changes its text to heading color.
 - **Page heading:** medium-weight title followed by a muted description with four-pixel top spacing.
-- **Project gallery:** Keep the current six-project order, 2026 dates, short descriptions, and 5:4 pale stages. Preserve the detailed Anton editor, Bloombit books, and Snorlax browser artwork. Use black accents with pale neutral fills and fine outlines, not large black silhouettes. Finance is a compact wallet card: recording an illustrative ₹1,500 repayment changes ₹31,649.50 to ₹33,149.50 as the repayment slides into the ledger and the balance rolls upward through a clipped number window. Never use a progress bar for Finance. Clayo shows a short conversation: the incoming call moves up, Clayo asks who is calling, the caller replies about a delivery, and the call is forwarded. Reveal the conversation in sequence with reversible base-state transitions; never use a progress bar for call screening. Snorlax keeps its stationary browser; the upload ring completes, a check appears, and the new file enters the grid. Snorlax alone uses upload progress before its result; Finance and Clayo animate the actual transaction and conversation; exit transitions have no delay and return smoothly. No looping or unrelated floating motion. Other previews retain their established interactions. Reduced motion removes transition timing.
+- **Project gallery:** Keep the current six-project order, 2026 dates, short descriptions, and 5:4 pale stages. Preserve the detailed Anton editor, Bloombit books, and Snorlax browser artwork. Use charcoal accents (#333333), white surfaces, pale neutral fills, and fine gray outlines. The six previews share the --preview-* palette in project-previews.css, with no blue or purple tint. Finance is a compact wallet card: recording an illustrative ₹1,500 repayment changes ₹31,649.50 to ₹33,149.50 as the repayment slides into the ledger and the balance rolls upward through a clipped number window. Never use a progress bar for Finance. Clayo shows a short conversation: the incoming call moves up, Clayo asks who is calling, the caller replies about a delivery, and the call is forwarded. Reveal the conversation in sequence with reversible base-state transitions; never use a progress bar for call screening. Snorlax keeps its stationary browser; the upload ring completes, a check appears, and the new file enters the grid. Snorlax alone uses upload progress before its result; Finance and Clayo animate the actual transaction and conversation; exit transitions have no delay and return smoothly. No looping or unrelated floating motion. Other previews retain their established interactions. Reduced motion removes transition timing.
 - **Project row:** OpenVia (2026) and Heartbeat (2022) remain below the gallery as text rows, with title and external arrow on the left, year aligned right, then a muted description and subtle platform label. The entire surface is linked.
 - **Experience entry:** compact date, medium-weight role and linked company with a small inline logo, then muted descriptive prose. Entries have no enclosing surface.
 - **Venture row:** small existing logo, stacked title and description, and a trailing external arrow. The whole row receives the shared list interaction.
@@ -163,7 +163,7 @@ Experience rows retain their layout while sibling rows fade to 30% opacity over 
 
 Within an active experience, hovering or keyboard-focusing its company link also fades the date, role prefix, and description to 30%; the company stays fully visible. Company logos remain stationary.
 
-Project titles use locally hosted 16px brand icons (decorative, alongside the name). Project icons are grayscale at rest and transition to their supplied brand colors over 300ms on the parent link’s hover or keyboard focus, smoothly returning on exit. Venture logos retain their original colors; illustration palettes remain soft neutral. Anton uses a compact 144px WebP logo; the unused original SVG has been removed. Ventures uses the same supplied logos at 36px, with Anton Video first, followed by Bloombit, Clayo AI, and Hyfic.
+Project titles use locally hosted 16px brand icons (decorative, alongside the name). Project icons are grayscale at rest and transition to their supplied brand colors over 300ms on the parent link’s hover or keyboard focus, smoothly returning on exit. Venture logos retain their original colors; illustration palettes use shared neutral grayscale tokens with faint contact shadows. Anton uses a compact 144px WebP logo; the unused original SVG has been removed. Ventures uses the same supplied logos at 36px, with Anton Video first, followed by Bloombit, Clayo AI, and Hyfic.
 
 Project-grid year labels occupy a fixed clipped 16px-high slot. On card hover or keyboard focus, the year slides upward out of view while a muted external arrow rises from below. Both use base-state 300ms transform transitions, reversing on exit without layout shift.
 
