@@ -13,30 +13,65 @@ import ExternalLink from "./ExternalLink.astro";
     Hi, I’m Fadhil.
   </h1>
 
-  <div class="page-copy reveal-list">
+  <div class="page-copy reveal-list leading-[1.8]">
     <p class="reveal">
-      I’m a design and full-stack engineer. I like building software and
-      figuring out how things work. Right now, working on&#32;
+      I’m a design and full-stack engineer who likes building software and
+      figuring things out. Right now, building &#32;
       <ExternalLink href="https://antonvideo.app"
         ><img
           src="/projects/anton.webp"
           alt=""
           width="16"
           height="16"
-          class="mr-1.5 inline-block size-4 rounded-[4px] object-contain align-[-3px]"
+          class="mr-1 inline-block size-4 rounded-[4px] object-contain align-[-2px]"
         />Anton&nbsp;Video</ExternalLink
-      >. You can also look through my other&#32;
-      <a class="text-link" href="/projects">projects</a>,&#32;
-      <a class="text-link" href="/ventures">ventures</a>, and past&#32;
-      <a class="text-link" href="/experience">experience</a> here.
+      >.<span class="hidden sm:inline"
+        ><br />
+        &#32;You can also look through my other&#32;
+        <a class="text-link" href="/projects">projects</a>,&#32;
+        <a class="text-link" href="/ventures">ventures</a>, and past&#32;
+        <a class="text-link" href="/experience">experience</a> here.</span
+      >
     </p>
     <p class="reveal">
-      Outside of work, I’m usually watching anime or reading manga.
+      Outside of work, I’m usually watching anime, reading manga, or freewriting
+      on&#32;<ExternalLink href="https://hyfic.org/log-horizon/"
+        ><img
+          src="/projects/log-horizon.png"
+          alt=""
+          width="16"
+          height="16"
+          class="mr-1 inline-block size-4 rounded-[4px] object-contain align-[-2px]"
+        />Log&nbsp;Horizon</ExternalLink
+      >.
     </p>
     <p class="reveal">
-      I’m also open to work. Say hello at <EmailCopy />, or find other ways
-      to&#32;
-      <a class="text-link" href="/contact">get&nbsp;in&nbsp;touch</a>.
+      I’m also open to work. Say hello at <EmailCopy /><span class="sm:hidden"
+        >.</span
+      ><span class="hidden sm:inline"
+        >, or find other ways to&#32;<a class="text-link" href="/contact"
+          >get&nbsp;in&nbsp;touch</a
+        >.</span
+      >
+    </p>
+    <p class="mobile-paths reveal sm:hidden">
+      You can browse my <a href="/projects">projects</a> and&#32;
+      <a href="/ventures">ventures</a>, read about my&#32;
+      <a href="/experience">experience</a>, or&#32;
+      <a href="/contact">get&nbsp;in&nbsp;touch</a>.
     </p>
   </div>
 </section>
+
+<style>
+  .mobile-paths a {
+    display: inline-block;
+    padding-block: 10px;
+    /* font-weight: 500; */
+    line-height: 24px;
+    color: var(--color-heading);
+    text-decoration: underline;
+    text-decoration-color: var(--color-link-underline);
+    text-underline-offset: 4px;
+  }
+</style>
