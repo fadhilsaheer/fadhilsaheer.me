@@ -77,6 +77,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script>
       import "../scripts/favicon";
+
+      // Keep the entrance on first load; subsequent pages use the short crossfade.
+      document.addEventListener("astro:before-swap", (event) => {
+        event.newDocument.body.dataset.clientNavigation = "true";
+      });
     </script>
     <meta name="theme-color" content="#ffffff" />
   </head>

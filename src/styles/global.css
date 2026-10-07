@@ -186,6 +186,10 @@
     animation-delay: var(--reveal-delay, 0ms);
   }
 
+  [data-client-navigation] .reveal {
+    animation: none;
+  }
+
   .reveal-list > :nth-child(1) {
     --reveal-delay: 80ms;
   }

@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://fadhilsaheer.me",
+  trailingSlash: "always",
+  prefetch: { prefetchAll: true, defaultStrategy: "viewport" },
   integrations: [react()],
   server: { port: 3000 },
   devToolbar: { enabled: false },
