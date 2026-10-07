@@ -1,4 +1,5 @@
 ---
+import ExternalLink from "./ExternalLink.astro";
 import Avatar from "./Avatar.astro";
 import EmailCopy from "./EmailCopy.astro";
 ---
@@ -36,23 +37,9 @@ import EmailCopy from "./EmailCopy.astro";
     </p>
     <p class="reveal">
       My code is on{" "}
-      <a
-        class="text-link"
-        href="https://github.com/fadhilsaheer"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
+      <ExternalLink href="https://github.com/fadhilsaheer">GitHub</ExternalLink>
       , I’m around on{" "}
-      <a
-        class="text-link"
-        href="https://x.com/fadhilsaheer"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        X
-      </a>
+      <ExternalLink href="https://x.com/fadhilsaheer">X</ExternalLink>
       , and my inbox is <EmailCopy />.
     </p>
     <p class="reveal">

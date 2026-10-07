@@ -8,15 +8,54 @@ const { email = "fadhil@hyfic.org" } = Astro.props;
 <email-copy class="relative inline" data-email={email}>
   <button
     type="button"
-    class="text-link"
+    class="inline-action"
     aria-label={`Copy email address ${email}`}
   >
-    {email}
+    <span class="inline-action-label">{email}</span>
+    <span class="inline-action-icon" aria-hidden="true">
+      <span class="email-copy-symbol">
+        <svg
+          class="email-copy-glyph"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <rect
+            x="5"
+            y="5"
+            width="8"
+            height="8"
+            rx="1.5"
+            stroke="currentColor"
+            stroke-width="1.25"
+          />
+          <path
+            d="M10.5 2.5H4A1.5 1.5 0 0 0 2.5 4v6.5"
+            stroke="currentColor"
+            stroke-width="1.25"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="email-check-glyph text-green-600"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            d="m3 8 3.25 3.25L13 4.5"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    </span>
   </button>
-  <span
-    role="status"
-    class="pointer-events-none absolute -top-8 left-0 whitespace-nowrap rounded bg-ink px-2 py-1 text-xs text-white empty:hidden"
-  ></span>
+  <span role="status" class="sr-only"></span>
 </email-copy>
 
 <script>
@@ -26,25 +65,32 @@ const { email = "fadhil@hyfic.org" } = Astro.props;
 
     connectedCallback() {
       this.controller = new AbortController();
-      this.querySelector("button")?.addEventListener(
+      const button = this.querySelector("button");
+      button?.addEventListener(
         "click",
         async () => {
           const email = this.dataset.email;
           const status = this.querySelector<HTMLElement>("[role='status']");
           if (!email || !status) return;
 
+          clearTimeout(this.resetTimer);
+          delete button.dataset.copied;
+          status.textContent = "";
+
           try {
             await navigator.clipboard.writeText(email);
             if (!this.isConnected) return;
+            button.dataset.copied = "";
             status.textContent = "Email copied";
           } catch {
+            if (!this.isConnected) return;
             // Keep email usable when clipboard permissions are unavailable.
             window.location.href = `mailto:${email}`;
             status.textContent = "Open your email app";
           }
 
-          clearTimeout(this.resetTimer);
           this.resetTimer = setTimeout(() => {
+            delete button.dataset.copied;
             status.textContent = "";
           }, 2200);
         },

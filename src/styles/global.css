@@ -8,6 +8,7 @@
   --color-heading: #0a0a0a;
   --color-muted: #6e6e73;
   --color-subtle: #74747a;
+  --color-link-underline: #cccccc;
   --color-rule: #e8e8eb;
   --color-wash: #f6f6f7;
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -41,7 +42,66 @@
 
 @layer components {
   .text-link {
-    @apply text-heading underline decoration-ink/25 decoration-[1px] underline-offset-4 transition-colors duration-200 hover:decoration-ink;
+    @apply text-heading underline decoration-transparent decoration-[1px] underline-offset-4 transition-colors duration-200 hover:decoration-link-underline focus-visible:decoration-link-underline;
+  }
+
+  .inline-action {
+    @apply inline-flex items-baseline whitespace-nowrap text-heading;
+  }
+
+  .inline-action-external {
+    --inline-icon-size: 10px;
+  }
+
+  .inline-action-label {
+    @apply underline decoration-transparent decoration-[1px] underline-offset-4 transition-colors duration-200;
+  }
+
+  .inline-action-icon {
+    @apply inline-flex w-0 shrink-0 self-center overflow-hidden text-muted opacity-0;
+    transition:
+      width 200ms var(--ease-out-soft),
+      margin-left 200ms var(--ease-out-soft),
+      opacity 200ms;
+  }
+
+  .inline-action-icon svg {
+    flex-shrink: 0;
+  }
+
+  .inline-action:is(:hover, :focus-visible) .inline-action-label {
+    @apply decoration-link-underline;
+  }
+
+  .inline-action:is(:hover, :focus-visible, [data-copied]) .inline-action-icon {
+    @apply ml-1 opacity-100;
+    width: var(--inline-icon-size, 14px);
+  }
+
+  .email-copy-symbol {
+    @apply relative block size-3.5 shrink-0;
+  }
+
+  .email-copy-symbol svg {
+    @apply absolute inset-0 size-3.5;
+    transition:
+      opacity 220ms var(--ease-out-soft),
+      transform 220ms var(--ease-out-soft);
+  }
+
+  .email-check-glyph {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  [data-copied] .email-copy-glyph {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  [data-copied] .email-check-glyph {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .list-link {

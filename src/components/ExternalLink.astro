@@ -1,0 +1,18 @@
+---
+import Arrow from "./Arrow.astro";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="inline-action inline-action-external">
+  <span class="inline-action-label">
+    <slot />
+  </span>
+  <span class="inline-action-icon" aria-hidden="true">
+    <Arrow class="size-2.5" strokeWidth={2.5} />
+  </span>
+</a>

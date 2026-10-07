@@ -5,10 +5,14 @@ import Arrow from "./Arrow.astro";
 <nav aria-label="Back to home" class="mb-7 reveal">
   <a
     href="/"
-    class="inline-flex min-h-8 items-center gap-2 text-subtle transition-colors duration-200 hover:text-heading"
+    class="group inline-flex min-h-8 items-center gap-2 text-subtle transition-colors duration-300 hover:text-heading focus-visible:text-heading"
     aria-label="Return to the home page"
   >
-    <Arrow direction="back" />
+    <Arrow
+      direction="back"
+      strokeWidth={1.8}
+      class="size-3.5 transition-transform duration-300 ease-out-soft group-hover:-translate-x-[3px] group-focus-visible:-translate-x-[3px]"
+    />
     <span>return</span>
   </a>
 </nav>

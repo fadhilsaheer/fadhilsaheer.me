@@ -96,7 +96,7 @@ The global stylesheet also declares an unused rule color; it is deliberately exc
 
 Geist Variable is the only typeface, with the system sans-serif fallback stack recorded above. The greeting, page titles, and item titles remain the same size as prose. Medium weight provides their hierarchy; no display-size role exists.
 
-Body paragraphs use the muted role. Dates and platform labels use the compact label role; contact values have their own intermediate size. Dates and the live clock use tabular numerals. Inline links retain a fine underline with a four-pixel offset; its opacity strengthens on hover.
+Body paragraphs use the muted role. Dates and platform labels use the compact label role; contact values have their own intermediate size. Dates and the live clock use tabular numerals. Inline links have no visible underline at rest. A fine underline with a four-pixel offset appears on hover or keyboard focus. Inline external links reveal a compact 10px outward arrow in muted text gray (#6e6e73), with a light gray (#cccccc) underline; email buttons reveal a copy icon beside their labels in the same states, using a 200ms width/opacity transition.
 
 ## Layout
 
@@ -110,7 +110,7 @@ The homepage links inline to projects, experience, ventures, and contact. Each o
 
 The interface is flat and has no shadow vocabulary. Whitespace and text tone separate content. List surfaces are transparent at rest and acquire the wash color on hover or keyboard focus; they are not permanent cards.
 
-Entrances last 560ms with the soft ease recorded in the sidecar, moving from 8px below with 3px blur and zero opacity to the settled state. List delays range from 80ms to 280ms in 40ms increments. Page transitions fade over 160ms. Link transitions last 200ms; external arrows move 2px up and right on row hover. Reduced-motion CSS removes animations and transitions, including view transitions.
+Entrances last 560ms with the soft ease recorded in the sidecar, moving from 8px below with 3px blur and zero opacity to the settled state. List delays range from 80ms to 280ms in 40ms increments. Page transitions fade the content and footer together over 160ms. The footer also joins the entrance sequence with a 240ms delay. Link transitions last 200ms; external arrows move 2px up and right on row hover. Reduced-motion CSS removes animations and transitions, including view transitions.
 
 ## Shapes
 
@@ -119,7 +119,7 @@ Most content has no enclosing shape. Hoverable list surfaces have gently rounded
 ## Components
 
 - **Trainer avatar:** `Avatar.astro` wraps the React `page-mascot` island with `client:load`. Its default box is 128px. It uses the existing direction and reaction WebP sheets and pixelated rendering. The homepage places it first, offsets its wrapper 24px left, and leaves 12px below it. Preserve the pixel trainer artwork and pointer/reaction behavior.
-- **Inline link:** near-black underlined prose with an opacity change on hover. Global keyboard focus is a two-pixel muted outline with five-pixel offset and a two-pixel corner radius.
+- **Inline link:** near-black prose with an underline appearing on hover or keyboard focus. Global keyboard focus is a two-pixel muted outline with five-pixel offset and a two-pixel corner radius.
 - **Email copy:** an inline text button styled as a link. A compact dark status appears above it after copying; a clipboard failure opens the email app. The status clears after 2200ms and uses an accessible live status role.
 - **Return navigation:** a subtle text link with a small curved back arrow, eight-pixel gap, and a minimum height of 32px. Hover changes its text to heading color.
 - **Page heading:** medium-weight title followed by a muted description with four-pixel top spacing.
@@ -145,3 +145,9 @@ There are no input fields, filled action buttons, or tag/chip components in the 
 - Don't enlarge the modest headings into display typography.
 - Don't add permanent card fills, borders, or shadows to the work lists.
 - Don't turn the inline homepage navigation into a large menu or invent new content sections.
+
+Email copy success crossfades and scales the copy glyph into a green check over 220ms, holds for 2.2 seconds, then reverses the transition. Both glyphs share a fixed-size slot to avoid layout movement. Reduced-motion preferences disable the transition. Feedback is announced through a screen-reader-only live region; no visible popup appears. The check remains visible during confirmation even if the pointer leaves.
+
+All visible page content participates in an entrance group, including the Contact introduction (40ms delay) and Projects closing link (280ms). Contact uses the shared animated EmailCopy control in its introductory paragraph; the Email list row remains a mailto link.
+
+The return control uses a rounded hooked arrow with a 1.8px stroke. Hover or keyboard focus darkens the link and shifts only the arrow 3px left over 300ms, preserving text position and honoring reduced motion.

@@ -151,7 +151,7 @@
       "refersTo": "text-link",
       "description": "Navigation embedded in prose.",
       "html": "<a class=\"ds-link\" href=\"/projects\">projects</a>",
-      "css": ".ds-link{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;color:var(--color-heading,#0a0a0a);text-decoration:underline;text-decoration-color:rgba(26,26,30,.25);text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-color 200ms;background:none;border:0;padding:0;cursor:pointer}.ds-link:hover{text-decoration-color:var(--color-ink,#1a1a1e)}.ds-link:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+      "css": ".ds-link{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;color:var(--color-heading,#0a0a0a);text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-color 200ms;background:none;border:0;padding:0;cursor:pointer}.ds-link:hover,.ds-link:focus-visible{text-decoration-color:rgba(26,26,30,.25)}.ds-link:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
     },
     {
       "name": "Email copy",
@@ -159,7 +159,7 @@
       "refersTo": "email-copy",
       "description": "Inline email-copy button; clipboard logic and live status are provided by the Astro component.",
       "html": "<button class=\"ds-link\" type=\"button\" aria-label=\"Copy email address fadhil@hyfic.org\">fadhil@hyfic.org</button>",
-      "css": ".ds-link{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;color:var(--color-heading,#0a0a0a);text-decoration:underline;text-decoration-color:rgba(26,26,30,.25);text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-color 200ms;background:none;border:0;padding:0;cursor:pointer}.ds-link:hover{text-decoration-color:var(--color-ink,#1a1a1e)}.ds-link:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+      "css": ".ds-link{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;color:var(--color-heading,#0a0a0a);text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:4px;transition:text-decoration-color 200ms;background:none;border:0;padding:0;cursor:pointer}.ds-link:hover,.ds-link:focus-visible{text-decoration-color:rgba(26,26,30,.25)}.ds-link:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
     },
     {
       "name": "Return navigation",

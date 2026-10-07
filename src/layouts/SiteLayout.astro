@@ -79,13 +79,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     >
       Skip to content
     </a>
-    <div class="mx-auto flex min-h-svh w-full max-w-[560px] flex-col px-6 pb-8 pt-12 sm:px-[60px] sm:pb-9 sm:pt-[88px]">
+    <div
+      class="mx-auto flex min-h-svh w-full max-w-[560px] flex-col px-6 pb-8 pt-12 sm:px-[60px] sm:pb-9 sm:pt-[88px]"
+      transition:name="page-content"
+      transition:animate={fade({ duration: "160ms" })}
+    >
       <main
         id="content"
         tabindex="-1"
         class="outline-none"
-        transition:name="page-content"
-        transition:animate={fade({ duration: "160ms" })}
       >
         {title && <Header />}
         <slot />
