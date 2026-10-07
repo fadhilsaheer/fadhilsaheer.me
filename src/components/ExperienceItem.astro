@@ -14,20 +14,24 @@ const { period, title, company, companyUrl, companyLogo, description } =
 ---
 
 <li class="reveal">
-  <p class="mb-2 text-xs tabular-nums text-subtle">{period}</p>
-  <h2 class="font-medium text-heading">
-    {title} at{" "}
-    <ExternalLink href={companyUrl}>
-      <img
-        src={companyLogo}
-        alt=""
-        width="18"
-        height="18"
-        class="mx-1 inline size-[18px] rounded align-[-3px]"
-        loading="lazy"
-      />
-      {company}
-    </ExternalLink>
-  </h2>
-  <p class="mt-2 text-muted">{description}</p>
+  <div class="experience-content transition-opacity duration-500 ease-out-soft">
+    <p class="experience-detail mb-2 text-xs tabular-nums text-subtle">
+      {period}
+    </p>
+    <h2 class="font-medium text-heading">
+      <span class="experience-detail">{title} at</span>{" "}
+      <ExternalLink href={companyUrl}>
+        <img
+          src={companyLogo}
+          alt=""
+          width="18"
+          height="18"
+          class="mx-1 inline size-[18px] rounded align-[-3px]"
+          loading="lazy"
+        />
+        {company}
+      </ExternalLink>
+    </h2>
+    <p class="experience-detail mt-2 text-muted">{description}</p>
+  </div>
 </li>

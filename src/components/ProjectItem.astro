@@ -6,7 +6,7 @@ interface Props {
   title: string;
   description: string;
   platform: "WEB" | "MOBILE" | "DESKTOP";
-  year: string;
+  year?: string;
 }
 
 const { url, title, description, platform, year } = Astro.props;
@@ -25,7 +25,9 @@ const platformLabel = platform.charAt(0) + platform.slice(1).toLowerCase();
         {title}
         <Arrow class="size-3 text-subtle transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </h2>
-      <span class="shrink-0 text-xs tabular-nums text-subtle">{year}</span>
+      {year && (
+        <span class="shrink-0 text-xs tabular-nums text-subtle">{year}</span>
+      )}
     </div>
     <p class="mt-1 text-muted">{description}</p>
     <p class="mt-1 text-xs text-subtle">{platformLabel}</p>

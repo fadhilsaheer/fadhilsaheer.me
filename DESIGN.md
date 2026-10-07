@@ -8,6 +8,7 @@ colors:
   muted: "#6e6e73"
   subtle: "#74747a"
   wash: "#f6f6f7"
+  preview-stage: "rgba(0, 0, 0, 0.035)"
 typography:
   title:
     fontFamily: '"Geist Variable", ui-sans-serif, system-ui, sans-serif'
@@ -32,6 +33,7 @@ typography:
 rounded:
   small: "4px"
   list: "8px"
+  preview: "10px"
 spacing:
   one: "4px"
   two: "8px"
@@ -56,6 +58,9 @@ components:
   return-navigation:
     textColor: "{colors.subtle}"
     typography: "{typography.body}"
+  project-preview:
+    backgroundColor: "{colors.preview-stage}"
+    rounded: "{rounded.preview}"
   page-heading:
     textColor: "{colors.heading}"
     typography: "{typography.title}"
@@ -88,7 +93,8 @@ The palette is neutral and light, with near-black emphasis and two gray text rol
 - **Heading** marks titles and actionable inline text.
 - **Muted** carries paragraphs, descriptions, contact values, and the keyboard focus outline.
 - **Subtle** carries dates, platforms, return navigation, and footer metadata.
-- **Wash** appears only on hovered or focused list links.
+- **Wash** appears on hovered or focused list links.
+- **Preview stage** gives the project thumbnails their pale neutral background.
 
 The global stylesheet also declares an unused rule color; it is deliberately excluded from the normative palette until a component uses it.
 
@@ -102,19 +108,21 @@ Body paragraphs use the muted role. Dates and platform labels use the compact la
 
 The shared layout is a centered, full-width column with a maximum outer width of 560px. Below the 640px breakpoint, horizontal padding is 24px and top padding is 48px. At and above that breakpoint, horizontal padding is 60px and top padding is 88px, leaving the intended 440px desktop content width. Bottom padding changes from 32px to 36px. The shell has a minimum height of one small viewport and a flex column layout.
 
-Homepage paragraphs are separated by 24px. Subpage return navigation and page headings have 28px bottom spacing. The footer uses an automatic top margin and 80px top padding; its two groups wrap when necessary. Projects use 8px inter-row spacing, ventures 12px, contact links 4px, and experience entries 36px. Interactive list surfaces extend 12px beyond the text edge so their internal padding preserves alignment.
+Homepage paragraphs are separated by 24px. Subpage return navigation and page headings have 28px bottom spacing. The footer uses an automatic top margin and 80px top padding; its two groups wrap when necessary. Text project rows use 8px inter-row spacing, ventures 12px, contact links 4px, and experience entries 36px. Interactive list surfaces extend 12px beyond the text edge so their internal padding preserves alignment.
+
+The project gallery stays inside the existing reading column: two equal columns from a 360px viewport, one below it, with 16px column gaps and 32px row gaps. Each preview is 5:4; captions sit 8px below, with the title and year sharing a baseline and a 13px description 4px beneath. The text-only “More projects” section starts 48px after the gallery.
 
 The homepage links inline to projects, experience, ventures, and contact. Each of those four subpages shares the return link, modest heading, and footer. Do not add a sidebar or a wide multi-column grid to this composition.
 
 ## Elevation & Depth
 
-The interface is flat and has no shadow vocabulary. Whitespace and text tone separate content. List surfaces are transparent at rest and acquire the wash color on hover or keyboard focus; they are not permanent cards.
+The surrounding interface remains flat. Project SVG illustrations alone use soft internal drop shadows: `0 5px 5px rgb(26 26 30 / 5%)` on illustration objects and `0 4px 3px rgb(26 26 30 / 6%)` on book artwork; these do not elevate the linked cards themselves. Whitespace and text tone separate content. List surfaces are transparent at rest and acquire the wash color on hover or keyboard focus; they are not permanent cards.
 
 Entrances last 560ms with the soft ease recorded in the sidecar, moving from 8px below with 3px blur and zero opacity to the settled state. List delays range from 80ms to 280ms in 40ms increments. Page transitions fade the content and footer together over 160ms. The footer also joins the entrance sequence with a 240ms delay. Link transitions last 200ms; external arrows move 2px up and right on row hover. Reduced-motion CSS removes animations and transitions, including view transitions.
 
 ## Shapes
 
-Most content has no enclosing shape. Hoverable list surfaces have gently rounded corners; small company logos and the email status use the smaller radius. Venture logos are 36px squares with list-radius corners, while company logos are 18px squares. The footer indicator is a small circle. These shapes support existing content rather than forming a decorative motif.
+Project thumbnail artwork is clipped to a 10px rounded rectangle with a permanent pale background; captions remain directly on the white canvas. Most other content has no enclosing shape. Hoverable list surfaces have gently rounded corners; small company logos and the email status use the smaller radius. Venture logos are 36px squares with list-radius corners, while company logos are 18px squares. The footer indicator is a small circle. These shapes support existing content rather than forming a decorative motif.
 
 ## Components
 
@@ -123,7 +131,8 @@ Most content has no enclosing shape. Hoverable list surfaces have gently rounded
 - **Email copy:** an inline text button styled as a link. A compact dark status appears above it after copying; a clipboard failure opens the email app. The status clears after 2200ms and uses an accessible live status role.
 - **Return navigation:** a subtle text link with a small curved back arrow, eight-pixel gap, and a minimum height of 32px. Hover changes its text to heading color.
 - **Page heading:** medium-weight title followed by a muted description with four-pixel top spacing.
-- **Project row:** title and external arrow on the left, year aligned right, then a muted description and subtle platform label. The entire surface is linked.
+- **Project gallery:** Keep the current six-project order, 2026 dates, short descriptions, and 5:4 pale stages. Preserve the detailed Anton editor, Bloombit books, and Snorlax browser artwork. Use black accents with pale neutral fills and fine outlines, not large black silhouettes. Finance is a compact wallet card: recording an illustrative ₹1,500 repayment changes ₹31,649.50 to ₹33,149.50 as the repayment slides into the ledger and the balance rolls upward through a clipped number window. Never use a progress bar for Finance. Clayo shows a short conversation: the incoming call moves up, Clayo asks who is calling, the caller replies about a delivery, and the call is forwarded. Reveal the conversation in sequence with reversible base-state transitions; never use a progress bar for call screening. Snorlax keeps its stationary browser; the upload ring completes, a check appears, and the new file enters the grid. Snorlax alone uses upload progress before its result; Finance and Clayo animate the actual transaction and conversation; exit transitions have no delay and return smoothly. No looping or unrelated floating motion. Other previews retain their established interactions. Reduced motion removes transition timing.
+- **Project row:** OpenVia (2026) and Heartbeat (2022) remain below the gallery as text rows, with title and external arrow on the left, year aligned right, then a muted description and subtle platform label. The entire surface is linked.
 - **Experience entry:** compact date, medium-weight role and linked company with a small inline logo, then muted descriptive prose. Entries have no enclosing surface.
 - **Venture row:** small existing logo, stacked title and description, and a trailing external arrow. The whole row receives the shared list interaction.
 - **Contact row:** heading-colored channel name and a right-aligned muted value with arrow. Long values truncate within the row.
@@ -143,11 +152,15 @@ There are no input fields, filled action buttons, or tag/chip components in the 
 ### Don't:
 - Don't replace the pinned reference with the earlier seed or another visual direction.
 - Don't enlarge the modest headings into display typography.
-- Don't add permanent card fills, borders, or shadows to the work lists.
+- Don't add permanent card fills, borders, or shadows to the text work lists. The gallery's pale thumbnail frames and internal illustration shadows are the scoped exception.
 - Don't turn the inline homepage navigation into a large menu or invent new content sections.
 
 Email copy success crossfades and scales the copy glyph into a green check over 220ms, holds for 2.2 seconds, then reverses the transition. Both glyphs share a fixed-size slot to avoid layout movement. Reduced-motion preferences disable the transition. Feedback is announced through a screen-reader-only live region; no visible popup appears. The check remains visible during confirmation even if the pointer leaves.
 
-All visible page content participates in an entrance group, including the Contact introduction (40ms delay) and Projects closing link (280ms). Contact uses the shared animated EmailCopy control in its introductory paragraph; the Email list row remains a mailto link.
+All visible page content participates in an entrance group, including the Contact introduction (40ms delay) and Projects closing link (360ms). Contact uses the shared animated EmailCopy control in its introductory paragraph; the Email list row remains a mailto link.
 
 The return control uses a rounded hooked arrow with a 1.8px stroke. Hover or keyboard focus darkens the link and shifts only the arrow 3px left over 300ms, preserving text position and honoring reduced motion.
+
+Experience rows retain their layout while sibling rows fade to 30% opacity over 500ms when an entry is hovered or its link receives keyboard focus. The inner content owns this opacity transition independently of the row entrance animation. Touch devices do not receive hover dimming.
+
+Within an active experience, hovering or keyboard-focusing its company link also fades the date, role prefix, and description to 30%; the company stays fully visible. Company logos remain stationary.

@@ -1,0 +1,47 @@
+---
+import AntonPreview from "./previews/AntonPreview.astro";
+import BloombitPreview from "./previews/BloombitPreview.astro";
+import ClayoPreview from "./previews/ClayoPreview.astro";
+import SnorlaxPreview from "./previews/SnorlaxPreview.astro";
+
+import FinancePreview from "./previews/FinancePreview.astro";
+import LogHorizonPreview from "./previews/LogHorizonPreview.astro";
+
+const previews = {
+  finance: FinancePreview,
+  logHorizon: LogHorizonPreview,
+  anton: AntonPreview,
+  bloombit: BloombitPreview,
+  clayo: ClayoPreview,
+  snorlax: SnorlaxPreview,
+};
+
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  year: string;
+  preview: keyof typeof previews;
+}
+
+const { title, description, url, year, preview } = Astro.props;
+const Preview = previews[preview];
+---
+
+<li class="reveal min-w-0">
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="project-card block"
+  >
+    <div class="aspect-[5/4] overflow-hidden rounded-[10px] bg-black/[0.035]">
+      <Preview />
+    </div>
+    <div class="mt-2 flex items-baseline justify-between gap-2">
+      <h2 class="font-medium text-heading min-w-0">{title}</h2>
+      <span class="shrink-0 text-xs tabular-nums text-subtle">{year}</span>
+    </div>
+    <p class="mt-1 text-[13px] leading-relaxed text-muted">{description}</p>
+  </a>
+</li>

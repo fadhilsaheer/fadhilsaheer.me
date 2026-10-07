@@ -1,0 +1,186 @@
+/* Transitions live on resting states so hover exit reverses without a jump. */
+.project-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.diary-pen,
+.anton-caption,
+.anton-playhead,
+.bloom-book {
+  transform: translate(0, 0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bloom-book-left {
+  transform: rotate(-9deg);
+}
+.bloom-book-right {
+  transform: rotate(9deg);
+}
+.bloom-progress,
+.diary-writing {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 70;
+  transition: stroke-dashoffset 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:is(:hover, :focus-visible) .anton-caption {
+  transform: translateY(-4px);
+}
+.project-card:is(:hover, :focus-visible) .anton-playhead {
+  transform: translateX(92px);
+}
+.project-card:is(:hover, :focus-visible) .bloom-book-left {
+  transform: translate(-7px, -3px) rotate(-14deg);
+}
+.project-card:is(:hover, :focus-visible) .bloom-book-right {
+  transform: translate(7px, -3px) rotate(14deg);
+}
+.project-card:is(:hover, :focus-visible) .bloom-book-center {
+  transform: translateY(-8px);
+}
+.project-card:is(:hover, :focus-visible) .bloom-progress {
+  stroke-dashoffset: 18;
+}
+.project-card:is(:hover, :focus-visible) .diary-pen {
+  transform: translate(7px, -5px);
+}
+.project-card:is(:hover, :focus-visible) .diary-writing {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-art,
+  .project-art * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Soft depth belongs to the original artwork; accents remain black. */
+.preview-window,
+.preview-shadow {
+  filter: drop-shadow(0 5px 5px rgb(0 0 0 / 5%));
+}
+.bloom-book {
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 6%));
+}
+
+/* Product demos: complete once while hovered, then smoothly rewind on exit. */
+.demo-before,
+.demo-after {
+  transition: opacity 250ms ease;
+}
+.demo-before {
+  opacity: 1;
+}
+.demo-after {
+  opacity: 0;
+}
+.demo-progress {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 600ms ease-in-out;
+}
+.snorlax-new-file {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 300ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:is(:hover, :focus-visible) .demo-progress {
+  stroke-dashoffset: 0;
+}
+.project-card:is(:hover, :focus-visible) .demo-before {
+  opacity: 0;
+  transition-delay: 600ms;
+}
+.project-card:is(:hover, :focus-visible) .demo-after {
+  opacity: 1;
+  transition-delay: 600ms;
+}
+.project-card:is(:hover, :focus-visible) .snorlax-new-file {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 600ms;
+}
+
+/* Money is recorded into the ledger; the amount rolls to its new value. */
+.finance-roll {
+  transform: translateY(0);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.finance-entry {
+  transform: translateY(24px);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.finance-pending,
+.finance-saved,
+.clayo-waiting,
+.clayo-screened {
+  transition: opacity 220ms ease;
+}
+.finance-pending,
+.clayo-waiting {
+  opacity: 1;
+}
+.finance-saved,
+.clayo-screened {
+  opacity: 0;
+}
+.project-card:is(:hover, :focus-visible) .finance-entry {
+  transform: translateY(0);
+}
+.project-card:is(:hover, :focus-visible) .finance-roll {
+  transform: translateY(-32px);
+  transition-delay: 200ms;
+}
+.project-card:is(:hover, :focus-visible) .finance-pending {
+  opacity: 0;
+  transition-delay: 450ms;
+}
+.project-card:is(:hover, :focus-visible) .finance-saved {
+  opacity: 1;
+  transition-delay: 450ms;
+}
+/* Clayo answers, receives the caller's reason, then forwards the call. */
+.clayo-incoming {
+  transform: translateY(0);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.clayo-question,
+.clayo-answer,
+.clayo-forwarded {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 220ms ease,
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.project-card:is(:hover, :focus-visible) .clayo-incoming {
+  transform: translateY(-26px);
+}
+.project-card:is(:hover, :focus-visible) .clayo-question {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 180ms;
+}
+.project-card:is(:hover, :focus-visible) .clayo-answer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 550ms;
+}
+.project-card:is(:hover, :focus-visible) .clayo-forwarded {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 950ms;
+}
+.project-card:is(:hover, :focus-visible) .clayo-waiting {
+  opacity: 0;
+  transition-delay: 950ms;
+}
+.project-card:is(:hover, :focus-visible) .clayo-screened {
+  opacity: 1;
+  transition-delay: 950ms;
+}

@@ -108,6 +108,35 @@
     @apply -mx-3 block rounded-lg px-3 py-3 transition-colors duration-200 hover:bg-wash focus-visible:bg-wash;
   }
 
+  /* Animate the inner content so entrance animations retain their own opacity. */
+  @media (hover: hover) and (pointer: fine) {
+    .experience-list:has(> li:hover)
+      > li:not(:hover):not(:focus-within)
+      > .experience-content {
+      opacity: 0.3;
+    }
+  }
+
+  .experience-list:has(:focus-visible)
+    > li:not(:focus-within):not(:hover)
+    > .experience-content {
+    opacity: 0.3;
+  }
+
+  .experience-detail {
+    @apply transition-opacity duration-500 ease-out-soft;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .experience-content:has(a:hover) .experience-detail {
+      opacity: 0.3;
+    }
+  }
+
+  .experience-content:has(a:focus-visible) .experience-detail {
+    opacity: 0.3;
+  }
+
   .page-copy {
     @apply space-y-6 text-muted;
   }

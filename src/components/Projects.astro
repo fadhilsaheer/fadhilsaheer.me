@@ -1,47 +1,79 @@
 ---
 import ExternalLink from "./ExternalLink.astro";
 import ProjectItem from "./ProjectItem.astro";
+import ProjectCard from "./projects/ProjectCard.astro";
 ---
 
 <section aria-label="Projects">
-  <ul class="space-y-2 reveal-list">
-    <ProjectItem
+  <ul class="grid grid-cols-1 gap-x-4 gap-y-8 min-[360px]:grid-cols-2 reveal-list">
+    <ProjectCard
+      url="https://antonvideo.app"
+      title="Anton Video"
+      description="AI video editor."
+      year="2026"
+      preview="anton"
+    />
+    <ProjectCard
+      url="https://hyfic.org/manavalan-finance/"
+      title="Manavalan Finance"
+      description="Offline finances."
+      year="2026"
+      preview="finance"
+    />
+    <ProjectCard
       url="https://getbloombit.com"
       title="Bloombit"
-      description="AI book summary app."
-      platform="MOBILE"
-      year="2025"
+      description="Book summaries."
+      year="2026"
+      preview="bloombit"
     />
-    <ProjectItem
+    <ProjectCard
       url="https://clayo.ai"
       title="Clayo AI"
-      description="AI call screener."
-      platform="MOBILE"
-      year="2025"
+      description="AI call screening."
+      year="2026"
+      preview="clayo"
     />
-    <ProjectItem
+    <ProjectCard
+      url="https://hyfic.org/log-horizon/"
+      title="Log Horizon"
+      description="Private journaling."
+      year="2026"
+      preview="logHorizon"
+    />
+    <ProjectCard
       url="https://github.com/hyfic/snorlax"
       title="Snorlax"
       description="Local cloud storage."
-      platform="DESKTOP"
-      year="2023"
-    />
-    <ProjectItem
-      url="https://octoi.github.io/heartbeat/"
-      title="Heartbeat"
-      description="Patient management system."
-      platform="DESKTOP"
-      year="2022"
-    />
-    <ProjectItem
-      url="https://octoi.github.io/heartbeat/"
-      title="Uchat"
-      description="Chat app."
-      platform="WEB"
-      year="2021"
+      year="2026"
+      preview="snorlax"
     />
   </ul>
-  <p class="reveal mt-8 text-muted" style="--reveal-delay: 280ms">
+  <div class="mt-12">
+    <h2
+      class="reveal mb-4 font-medium text-heading"
+      style="--reveal-delay: 320ms"
+    >
+      More projects
+    </h2>
+    <ul class="space-y-2 reveal-list">
+      <ProjectItem
+        url="https://hyfic.org/openvia/"
+        title="OpenVia"
+        description="Browser routing for macOS."
+        platform="DESKTOP"
+        year="2026"
+      />
+      <ProjectItem
+        url="https://octoi.github.io/heartbeat/"
+        title="Heartbeat"
+        description="Patient management."
+        platform="DESKTOP"
+        year="2022"
+      />
+    </ul>
+  </div>
+  <p class="reveal mt-8 text-muted" style="--reveal-delay: 360ms">
     More experiments on{" "}
     <ExternalLink href="https://github.com/octoi">GitHub</ExternalLink>.
   </p>

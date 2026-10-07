@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T09:22:41.707233+00:00",
+  "generatedAt": "2026-10-07T11:04:48.330236+00:00",
   "title": "Design System: Fadhil Saheer",
   "extensions": {
     "colorMeta": {
@@ -107,7 +107,18 @@
         "purpose": "Compact destination within contact rows."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "preview-shadow",
+        "value": "drop-shadow(0 5px 5px rgb(26 26 30 / 5%))",
+        "purpose": "Internal SVG illustration objects only; no card elevation."
+      },
+      {
+        "name": "preview-book",
+        "value": "drop-shadow(0 4px 3px rgb(26 26 30 / 6%))",
+        "purpose": "Internal Bloombit book artwork only."
+      }
+    ],
     "motion": [
       {
         "name": "ease-out-soft",
@@ -128,12 +139,21 @@
         "name": "link-state",
         "value": "200ms",
         "purpose": "Link color and arrow interaction."
+      },
+      {
+        "name": "project-preview",
+        "value": "600ms transforms; 800ms writing; 1200ms progress; 2200ms playhead; 1400ms waves",
+        "purpose": "Hover and keyboard-focus illustration states; transitions and animations disabled for reduced motion."
       }
     ],
     "breakpoints": [
       {
         "name": "sm",
         "value": "640px"
+      },
+      {
+        "name": "project-gallery",
+        "value": "360px"
       }
     ],
     "focus": {
@@ -192,6 +212,14 @@
       "description": "Channel name and compact destination on a shared list surface.",
       "html": "<a class=\"ds-row ds-contact\" href=\"mailto:fadhil@hyfic.org\"><span>Email</span><span class=\"ds-value\"><span>fadhil@hyfic.org</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 12 12 4M4.5 4H12v7.5\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></a>",
       "css": ".ds-row{font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;display:block;border-radius:8px;padding:12px;color:var(--color-heading,#0a0a0a);text-decoration:none;transition:background-color 200ms}.ds-row:hover,.ds-row:focus-visible{background:var(--color-wash,#f6f6f7)}.ds-row:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px;}.ds-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}.ds-title{display:flex;align-items:center;gap:4px;font-weight:500}.ds-meta{font-size:12px;line-height:1.333333;color:var(--color-subtle,#74747a);font-variant-numeric:tabular-nums}.ds-copy{margin:4px 0 0;color:var(--color-muted,#6e6e73)}.ds-row svg{flex-shrink:0;color:var(--color-subtle,#74747a);transition:transform 200ms}.ds-row:hover svg{transform:translate(2px,-2px)}.ds-contact{display:flex;align-items:center;justify-content:space-between;gap:16px}.ds-value{display:flex;align-items:center;gap:8px;min-width:0;color:var(--color-muted,#6e6e73);font-size:13px}.ds-value>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media(prefers-reduced-motion:reduce){.ds-link,.ds-row,.ds-row svg,.ds-return{transition:none}}"
+    },
+    {
+      "name": "Project gallery card",
+      "kind": "card",
+      "refersTo": "project-preview",
+      "description": "5:4 neutral vector illustration above a short title, year, and description; two columns from 360px and one below. Six cards precede the two text rows. This Snorlax sample uses the production SVG and interaction.",
+      "html": "<a class=\"project-card\" href=\"https://github.com/hyfic/snorlax\"><div class=\"ds-preview\"><svg viewBox=\"0 0 320 256\" fill=\"none\" aria-hidden=\"true\" class=\"project-art\">\n  <g class=\"snorlax-back-folder\">\n    <path\n      d=\"M71 58a6 6 0 0 1 6-6h47l13 10h105a6 6 0 0 1 6 6v113H71z\"\n      fill=\"#e4e4e9\"\n      stroke=\"#c9c9d2\"\n    />\n  </g>\n  <g class=\"preview-window\">\n    <rect\n      x=\"39\"\n      y=\"77\"\n      width=\"243\"\n      height=\"128\"\n      rx=\"8\"\n      fill=\"white\"\n      stroke=\"#d1d1d9\"\n    />\n    <path d=\"M39 96h243M90 96v109\" stroke=\"#e8e8ed\" />\n    <g fill=\"#d4d4da\">\n      <circle cx=\"49\" cy=\"86\" r=\"2\" />\n      <circle cx=\"56\" cy=\"86\" r=\"2\" />\n      <circle cx=\"63\" cy=\"86\" r=\"2\" />\n    </g>\n    <rect x=\"192\" y=\"82\" width=\"78\" height=\"8\" rx=\"4\" fill=\"#f0f0f3\" />\n    <g stroke=\"#c7c7d0\" stroke-width=\"2\" stroke-linecap=\"round\">\n      <path d=\"M49 111h30M49 123h22M49 135h26\" />\n    </g>\n    <rect x=\"216\" y=\"107\" width=\"55\" height=\"61\" rx=\"4\" fill=\"#f0f0f3\" />\n    <path d=\"m222 154 12-17 9 10 10-20 12 27z\" fill=\"#d0d0d9\" />\n    <circle cx=\"229\" cy=\"121\" r=\"5\" fill=\"white\" />\n    <path\n      d=\"M218 179h47M218 185h32M218 191h40\"\n      stroke=\"#d4d4dc\"\n      stroke-linecap=\"round\"\n    />\n    <g class=\"snorlax-file snorlax-file-one\">\n      <path d=\"M105 108h20l8 8v24h-28z\" fill=\"#e8e8ed\" stroke=\"#cacad4\" />\n      <path d=\"M125 108v8h8\" stroke=\"#cacad4\" />\n      <path d=\"M111 124h16M111 129h11\" stroke=\"#a9a9b6\" />\n      <path d=\"M107 147h24\" stroke=\"#cccdd5\" stroke-linecap=\"round\" />\n    </g>\n    <g class=\"snorlax-file snorlax-file-two\">\n      <path\n        d=\"M156 117a3 3 0 0 1 3-3h9l4 4h15a3 3 0 0 1 3 3v19h-34z\"\n        fill=\"#d4d4de\"\n        stroke=\"#bcbcc8\"\n      />\n      <path d=\"M156 122h34\" stroke=\"#bcbcc8\" />\n      <path d=\"M160 147h26\" stroke=\"#cccdd5\" stroke-linecap=\"round\" />\n    </g>\n    <g class=\"snorlax-file snorlax-file-three\">\n      <path d=\"M105 160h20l8 8v24h-28z\" fill=\"#e8e8ed\" stroke=\"#cacad4\" />\n      <path d=\"M125 160v8h8\" stroke=\"#cacad4\" />\n      <path d=\"m109 185 6-8 5 5 4-7 5 10z\" fill=\"#b8b8c4\" />\n    </g>\n    <g class=\"snorlax-file snorlax-file-four\">\n      <path\n        d=\"M156 169a3 3 0 0 1 3-3h9l4 4h15a3 3 0 0 1 3 3v19h-34z\"\n        fill=\"#d4d4de\"\n        stroke=\"#bcbcc8\"\n      />\n      <path d=\"M156 174h34\" stroke=\"#bcbcc8\" />\n    </g>\n  </g>\n  <g class=\"snorlax-upload preview-window\">\n    <circle cx=\"262\" cy=\"193\" r=\"17\" fill=\"white\" stroke=\"#d1d1d9\" />\n    <path\n      d=\"M262 200v-14m-5 5 5-5 5 5M255 201h14\"\n      stroke=\"#676772\"\n      stroke-width=\"1.5\"\n      stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"\n    />\n  </g>\n</svg></div><div class=\"ds-caption\"><h2>Snorlax</h2><span>2026</span></div><p>Local cloud storage.</p></a>",
+      "css": ".project-card{display:block;font-family:\"Geist Variable\",ui-sans-serif,system-ui,sans-serif;color:var(--color-heading,#0a0a0a);text-decoration:none;max-width:212px}.ds-preview{aspect-ratio:5/4;overflow:hidden;border-radius:10px;background:rgba(0,0,0,.035)}.ds-caption{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:8px}.ds-caption h2{font-size:15px;font-weight:500;line-height:1.6;margin:0}.ds-caption span{font-size:12px;color:var(--color-subtle,#74747a);font-variant-numeric:tabular-nums}.project-card p{font-size:13px;line-height:1.625;color:var(--color-muted,#6e6e73);margin:4px 0 0}.project-card:focus-visible{outline:2px solid var(--color-muted,#6e6e73);outline-offset:5px;border-radius:2px}/* SVG previews use the same neutral palette as the surrounding portfolio. */\n.project-art {\n  display: block;\n  width: 100%;\n  height: 100%;\n}\n.preview-window,\n.preview-shadow {\n  filter: drop-shadow(0 5px 5px rgb(26 26 30 / 5%));\n}\n\n.finance-card,\n.finance-receipt,\n.finance-coin,\n.diary-pen,\n.anton-caption,\n.bloom-book,\n.clayo-call,\n.clayo-meter,\n.snorlax-file,\n.snorlax-back-folder,\n.snorlax-upload {\n  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);\n  transform-box: fill-box;\n  transform-origin: center;\n}\n.bloom-book-left {\n  transform: rotate(-9deg);\n}\n.bloom-book-right {\n  transform: rotate(9deg);\n}\n.bloom-book {\n  filter: drop-shadow(0 4px 3px rgb(26 26 30 / 6%));\n}\n.bloom-progress {\n  stroke-dasharray: 100;\n  stroke-dashoffset: 72;\n  transition: stroke-dashoffset 1200ms cubic-bezier(0.22, 1, 0.36, 1);\n}\n.clayo-waves {\n  opacity: 0.35;\n  transition: opacity 300ms;\n}\n.snorlax-file-two {\n  transition-delay: 35ms;\n}\n.snorlax-file-three {\n  transition-delay: 70ms;\n}\n.snorlax-file-four {\n  transition-delay: 105ms;\n}\n\n.project-card:is(:hover, :focus-visible) .anton-caption {\n  transform: translateY(-4px);\n}\n.project-card:is(:hover, :focus-visible) .anton-playhead {\n  animation: preview-scrub 2200ms ease-in-out infinite alternate;\n}\n.project-card:is(:hover, :focus-visible) .bloom-book-left {\n  transform: translate(-9px, -4px) rotate(-15deg);\n}\n.project-card:is(:hover, :focus-visible) .bloom-book-right {\n  transform: translate(9px, -4px) rotate(15deg);\n}\n.project-card:is(:hover, :focus-visible) .bloom-book-center {\n  transform: translateY(-9px);\n}\n.project-card:is(:hover, :focus-visible) .bloom-progress {\n  stroke-dashoffset: 18;\n}\n.project-card:is(:hover, :focus-visible) .clayo-call {\n  transform: translate(-5px, -7px);\n}\n.project-card:is(:hover, :focus-visible) .clayo-meter {\n  transform: scaleX(1.35);\n  transform-origin: left;\n}\n.project-card:is(:hover, :focus-visible) .clayo-waves {\n  animation: preview-ring 1400ms ease-in-out infinite;\n}\n.project-card:is(:hover, :focus-visible) .snorlax-back-folder {\n  transform: translateY(-6px);\n}\n.project-card:is(:hover, :focus-visible) .snorlax-file {\n  transform: translateY(-4px);\n}\n.project-card:is(:hover, :focus-visible) .snorlax-upload {\n  transform: translateY(-7px);\n}\n\n@keyframes preview-scrub {\n  from {\n    transform: translateX(-24px);\n  }\n  to {\n    transform: translateX(116px);\n  }\n}\n@keyframes preview-ring {\n  0%,\n  100% {\n    opacity: 0.3;\n  }\n  50% {\n    opacity: 1;\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .project-art,\n  .project-art * {\n    animation: none !important;\n    transition: none !important;\n  }\n}\n\n.finance-coin {\n  transition-delay: 40ms;\n}\n.diary-writing {\n  stroke-dasharray: 100;\n  stroke-dashoffset: 62;\n  transition: stroke-dashoffset 800ms cubic-bezier(0.22, 1, 0.36, 1);\n}\n.project-card:is(:hover, :focus-visible) .finance-receipt {\n  transform: translateY(-9px);\n}\n.project-card:is(:hover, :focus-visible) .finance-coin {\n  transform: translate(-3px, -4px);\n}\n.project-card:is(:hover, :focus-visible) .diary-pen {\n  transform: translate(7px, -5px);\n}\n.project-card:is(:hover, :focus-visible) .diary-writing {\n  stroke-dashoffset: 0;\n}\n\n.project-card:is(:hover, :focus-visible) .finance-card {\n  transform: translate(-4px, -5px);\n}\n"
     }
   ],
   "narrative": {
@@ -215,7 +243,7 @@
     "donts": [
       "Don't replace the pinned reference with the earlier seed or another visual direction.",
       "Don't enlarge the modest headings into display typography.",
-      "Don't add permanent card fills, borders, or shadows to the work lists.",
+      "Don't add permanent card fills, borders, or shadows to the text work lists. The gallery's pale thumbnail frames and internal illustration shadows are the scoped exception.",
       "Don't turn the inline homepage navigation into a large menu or invent new content sections."
     ]
   }
