@@ -8,11 +8,76 @@ interface Props {
 const { size = 128 } = Astro.props;
 ---
 
-<Mascot
-  client:load
-  directions="/mascots/trainer-directions.webp"
-  reactions="/mascots/trainer-reactions.webp"
-  size={size}
-  className="trainer-avatar"
-  label="Fadhil's pixel trainer"
-/>
+<trainer-sounds class="block">
+  <Mascot
+    client:load
+    directions="/mascots/trainer-directions.webp"
+    reactions="/mascots/trainer-reactions.webp"
+    size={size}
+    className="trainer-avatar"
+    label="Fadhil's pixel trainer"
+  />
+</trainer-sounds>
+
+<script>
+  import { play, type PlayOptions } from "cuelume";
+
+  // page-mascot 0.1 exposes its reaction through the second sprite layer,
+  // but has no reaction callback. Observe that layer instead of duplicating
+  // its click counter and timers. Blink and pointer tracking stay silent.
+  const reactionSounds: Record<string, PlayOptions> = {
+    "50% 0%": { theme: "bubble" }, // heart
+    "100% 0%": { theme: "press" }, // sparkle
+    "100% 100%": { theme: "default" }, // delighted
+    "50% 100%": { theme: "bubble", direction: "back" }, // dizzy
+  };
+
+  class TrainerSounds extends HTMLElement {
+    private controller?: AbortController;
+    private observer?: MutationObserver;
+    private pending = false;
+
+    connectedCallback() {
+      this.controller = new AbortController();
+      this.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target instanceof Element &&
+            event.target.closest(".trainer-avatar")
+          ) {
+            this.pending = true;
+          }
+        },
+        { capture: true, signal: this.controller.signal },
+      );
+
+      this.observer = new MutationObserver(() => {
+        if (!this.pending) return;
+        const reaction = this.querySelector<HTMLElement>(
+          ".trainer-avatar > span > span:last-child",
+        );
+        if (!reaction || reaction.style.opacity !== "1") return;
+        const options = reactionSounds[reaction.style.backgroundPosition];
+        if (!options) return;
+        this.pending = false;
+        play("toggle", { ...options, emphasis: "subtle", volume: 0.3 });
+      });
+      this.observer.observe(this, {
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["style"],
+      });
+    }
+
+    disconnectedCallback() {
+      this.controller?.abort();
+      this.observer?.disconnect();
+      this.pending = false;
+    }
+  }
+
+  if (!customElements.get("trainer-sounds")) {
+    customElements.define("trainer-sounds", TrainerSounds);
+  }
+</script>
