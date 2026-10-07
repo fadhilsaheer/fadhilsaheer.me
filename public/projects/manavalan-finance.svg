@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs><linearGradient id="wallet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f69dcc"/><stop offset="1" stop-color="#b392ef"/></linearGradient></defs>
+<rect width="1024" height="1024" rx="224" fill="#f6f6f6"/>
+<rect x="200" y="270" width="624" height="490" rx="90" fill="url(#wallet)"/>
+<rect x="200" y="220" width="548" height="126" rx="60" fill="#171717"/>
+<rect x="650" y="430" width="216" height="168" rx="48" fill="#ffffff"/>
+<circle cx="710" cy="514" r="22" fill="#171717"/>
+<g fill="#ffffff"><rect x="290" y="580" width="50" height="80" rx="20"/><rect x="380" y="520" width="50" height="140" rx="20"/><rect x="470" y="460" width="50" height="200" rx="20"/></g>
+</svg>

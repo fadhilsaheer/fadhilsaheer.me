@@ -1,4 +1,5 @@
 ---
+import Arrow from "../Arrow.astro";
 import AntonPreview from "./previews/AntonPreview.astro";
 import BloombitPreview from "./previews/BloombitPreview.astro";
 import ClayoPreview from "./previews/ClayoPreview.astro";
@@ -22,9 +23,10 @@ interface Props {
   url: string;
   year: string;
   preview: keyof typeof previews;
+  logo: string;
 }
 
-const { title, description, url, year, preview } = Astro.props;
+const { title, description, url, year, preview, logo } = Astro.props;
 const Preview = previews[preview];
 ---
 
@@ -33,14 +35,34 @@ const Preview = previews[preview];
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    class="project-card block"
+    class="project-card group block"
   >
     <div class="aspect-[5/4] overflow-hidden rounded-[10px] bg-black/[0.035]">
       <Preview />
     </div>
-    <div class="mt-2 flex items-baseline justify-between gap-2">
-      <h2 class="font-medium text-heading min-w-0">{title}</h2>
-      <span class="shrink-0 text-xs tabular-nums text-subtle">{year}</span>
+    <div class="mt-2 flex items-start justify-between gap-2">
+      <h2 class="flex min-w-0 items-start gap-1.5 font-medium text-heading">
+        <img
+          src={logo}
+          alt=""
+          width="16"
+          height="16"
+          class="mt-1 size-4 shrink-0 rounded-[4px] object-contain grayscale transition-[filter] duration-300 ease-out group-hover:grayscale-0 group-focus-visible:grayscale-0"
+          loading="lazy"
+        />
+        <span>{title}</span>
+      </h2>
+      <span class="relative mt-1 block h-4 shrink-0 overflow-hidden text-xs tabular-nums text-subtle">
+        <span class="block leading-4 transition-transform duration-300 ease-out-soft group-hover:-translate-y-full group-focus-visible:-translate-y-full">
+          {year}
+        </span>
+        <span
+          aria-hidden="true"
+          class="absolute inset-0 flex translate-y-full items-center justify-end transition-transform duration-300 ease-out-soft group-hover:translate-y-0 group-focus-visible:translate-y-0"
+        >
+          <Arrow class="size-3" strokeWidth={1.8} />
+        </span>
+      </span>
     </div>
     <p class="mt-1 text-[13px] leading-relaxed text-muted">{description}</p>
   </a>

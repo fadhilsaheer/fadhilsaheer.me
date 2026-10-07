@@ -7,9 +7,10 @@ interface Props {
   description: string;
   platform: "WEB" | "MOBILE" | "DESKTOP";
   year?: string;
+  logo?: string;
 }
 
-const { url, title, description, platform, year } = Astro.props;
+const { url, title, description, platform, year, logo } = Astro.props;
 const platformLabel = platform.charAt(0) + platform.slice(1).toLowerCase();
 ---
 
@@ -22,6 +23,16 @@ const platformLabel = platform.charAt(0) + platform.slice(1).toLowerCase();
   >
     <div class="flex items-baseline justify-between gap-4">
       <h2 class="flex items-center gap-1 font-medium text-heading">
+        {logo && (
+          <img
+            src={logo}
+            alt=""
+            width="16"
+            height="16"
+            class="mr-1 size-4 shrink-0 rounded-[4px] object-contain grayscale transition-[filter] duration-300 ease-out group-hover:grayscale-0 group-focus-visible:grayscale-0"
+            loading="lazy"
+          />
+        )}
         {title}
         <Arrow class="size-3 text-subtle transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </h2>

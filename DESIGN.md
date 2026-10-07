@@ -164,3 +164,7 @@ The return control uses a rounded hooked arrow with a 1.8px stroke. Hover or key
 Experience rows retain their layout while sibling rows fade to 30% opacity over 500ms when an entry is hovered or its link receives keyboard focus. The inner content owns this opacity transition independently of the row entrance animation. Touch devices do not receive hover dimming.
 
 Within an active experience, hovering or keyboard-focusing its company link also fades the date, role prefix, and description to 30%; the company stays fully visible. Company logos remain stationary.
+
+Project titles use locally hosted 16px brand icons (decorative, alongside the name). Project icons are grayscale at rest and transition to their supplied brand colors over 300ms on the parent link’s hover or keyboard focus, smoothly returning on exit. Venture logos retain their original colors; illustration palettes remain soft neutral. The original Anton SVG is retained, with a 144px WebP display copy to avoid loading its embedded raster payload. Ventures uses the same supplied logos at 36px, with Anton Video first, followed by Bloombit, Clayo AI, and Hyfic.
+
+Project-grid year labels occupy a fixed clipped 16px-high slot. On card hover or keyboard focus, the year slides upward out of view while a muted external arrow rises from below. Both use base-state 300ms transform transitions, reversing on exit without layout shift.
