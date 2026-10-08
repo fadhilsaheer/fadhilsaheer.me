@@ -1,192 +1,141 @@
-/* Transitions live on resting states so hover exit reverses without a jump. */
+/* Neutral artwork, hairline edges, and one short product demonstration per hover. */
 .project-art {
-  --preview-paper: #ffffff;
-  --preview-wash: #f5f5f5;
-  --preview-fill: #ededed;
-  --preview-line: #dedede;
-  --preview-mid: #c4c4c4;
-  --preview-detail: #969696;
-  --preview-muted: #737373;
-  --preview-ink: #333333;
+  --art-ink: #333333;
+  --art-muted: #858585;
+  --art-border: #e5e5e5;
+  --demo-ease: cubic-bezier(.4, 0, .2, 1);
   display: block;
   width: 100%;
   height: 100%;
+  stroke-width: .6;
 }
-.diary-pen,
-.anton-caption,
-.anton-playhead,
-.bloom-book {
-  transform: translate(0, 0);
+.anton-playhead, .finance-balance,
+.anton-clip-first, .anton-clip-second, .anton-clip-third,
+.anton-clip-second-position, .anton-clip-third-position {
+  transition: transform 600ms var(--demo-ease), opacity 250ms ease;
   transform-box: fill-box;
   transform-origin: center;
-  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.bloom-book-left {
-  transform: rotate(-9deg);
+.anton-clip-first, .anton-clip-second, .anton-clip-third { transform-origin: left center; }
+.before, .result { transition: opacity 180ms ease; }
+.result { opacity: 0; }
+.finance-art { --finance-expense: #a36f69; }
+.finance-amount { font-variant-numeric: tabular-nums; }
+.finance-new-entry {
+  transform: translate(12px, 49px) rotate(-3deg);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 640ms var(--demo-ease);
 }
-.bloom-book-right {
-  transform: rotate(9deg);
-}
-.bloom-progress,
-.diary-writing {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 70;
-  transition: stroke-dashoffset 800ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.project-card:is(:hover, :focus-visible) .anton-caption {
-  transform: translateY(-4px);
-}
-.project-card:is(:hover, :focus-visible) .anton-playhead {
-  transform: translateX(92px);
-}
-.project-card:is(:hover, :focus-visible) .bloom-book-left {
-  transform: translate(-7px, -3px) rotate(-14deg);
-}
-.project-card:is(:hover, :focus-visible) .bloom-book-right {
-  transform: translate(7px, -3px) rotate(14deg);
-}
-.project-card:is(:hover, :focus-visible) .bloom-book-center {
-  transform: translateY(-8px);
-}
-.project-card:is(:hover, :focus-visible) .bloom-progress {
-  stroke-dashoffset: 18;
-}
-.project-card:is(:hover, :focus-visible) .diary-pen {
-  transform: translate(7px, -5px);
-}
-.project-card:is(:hover, :focus-visible) .diary-writing {
-  stroke-dashoffset: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  .project-art,
-  .project-art * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* A faint contact shadow separates the white artwork from its neutral stage. */
-.preview-window,
-.preview-shadow,
-.bloom-book {
-  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 2%));
-}
-
-/* Product demos: complete once while hovered, then smoothly rewind on exit. */
-.demo-before,
-.demo-after {
-  transition: opacity 250ms ease;
-}
-.demo-before {
-  opacity: 1;
-}
-.demo-after {
-  opacity: 0;
-}
-.demo-progress {
+.finance-previous-entry { transition: transform 600ms var(--demo-ease); }
+.finance-receipt-paper { transition: opacity 180ms ease; }
+.finance-saved, .audio-progress {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 600ms ease-in-out;
 }
-.snorlax-new-file {
+.finance-saved {
   opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 300ms ease,
-    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: stroke-dashoffset 240ms ease, opacity 120ms ease;
 }
-.project-card:is(:hover, :focus-visible) .demo-progress {
+.audio-progress { stroke-dashoffset: .8; transition: stroke-dashoffset 700ms ease-in-out; }
+.project-card:is(:hover, :focus-visible) .anton-clip-first { transform: scaleX(.72); }
+.project-card:is(:hover, :focus-visible) .anton-clip-second { transform: scaleX(.78); }
+.project-card:is(:hover, :focus-visible) .anton-clip-second-position { transform: translateX(-14px); }
+.project-card:is(:hover, :focus-visible) .anton-clip-third { transform: scaleX(1.4); }
+.project-card:is(:hover, :focus-visible) .anton-clip-third-position { transform: translateX(-31px); }
+.project-card:is(:hover, :focus-visible) .anton-playhead { transform: translateX(56px); transition-duration: 700ms; }
+.anton-ai-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 240ms ease, opacity 160ms ease;
+}
+.anton-ai-done {
+  opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 180ms linear, opacity 100ms ease;
+}
+.project-card:is(:hover, :focus-visible) .anton-ai-spark {
+  transform: rotate(135deg) scale(.85);
+  opacity: 0;
+  transition-duration: 450ms, 100ms;
+  transition-delay: 0ms, 420ms;
+}
+.project-card:is(:hover, :focus-visible) .anton-ai-done {
+  opacity: 1;
   stroke-dashoffset: 0;
+  transition-delay: 500ms;
 }
-.project-card:is(:hover, :focus-visible) .demo-before {
+.project-card:is(:hover, :focus-visible) .finance-saved { stroke-dashoffset: 0; opacity: 1; transition-delay: 540ms; }
+.project-card:is(:hover, :focus-visible) .finance-new-entry { transform: translate(0, 0) rotate(0); }
+.project-card:is(:hover, :focus-visible) .finance-previous-entry { transform: translateY(35px); transition-delay: 40ms; }
+.project-card:is(:hover, :focus-visible) .finance-receipt-paper { opacity: 0; transition-delay: 400ms; }
+.project-card:is(:hover, :focus-visible) .finance-balance { transform: translateY(-34px); transition-delay: 180ms; }
+.project-card:is(:hover, :focus-visible) .result { opacity: 1; transition-delay: 420ms; }
+.project-card:is(:hover, :focus-visible) .before { opacity: 0; transition-delay: 420ms; }
+.project-card:is(:hover, :focus-visible) .audio-progress { stroke-dashoffset: .15; }
+.bloom-play, .bloom-listening { transition: opacity 180ms ease; }
+.bloom-listening { opacity: 0; }
+.project-card:is(:hover, :focus-visible) .bloom-play { opacity: 0; }
+.project-card:is(:hover, :focus-visible) .bloom-listening { opacity: 1; }
+.audio-bar { transform-box: fill-box; transform-origin: center; }
+.project-card:is(:hover, :focus-visible) .audio-bar { animation: summary-audio 640ms ease-in-out; }
+.project-card:is(:hover, :focus-visible) .audio-bar-two { animation-delay: 60ms; }
+.project-card:is(:hover, :focus-visible) .audio-bar-three { animation-delay: 120ms; }
+@keyframes summary-audio {
+  0%, 100% { transform: scaleY(1); }
+  30% { transform: scaleY(.5); }
+  65% { transform: scaleY(1.6); }
+}
+/* The same motion path drives the nib and the handwritten ink. */
+.journal-pen {
+  offset-path: path("M112 146c5-3 9-3 14 0s8 3 13 0 9-2 14 0 8 2 13 0 9-2 16-1");
+  offset-anchor: 0px 0px;
+  offset-rotate: 0deg;
+  offset-distance: 0%;
+  transform-box: view-box;
+  transition: offset-distance 780ms linear;
+}
+.journal-writing {
   opacity: 0;
-  transition-delay: 600ms;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 780ms linear, opacity 120ms ease;
 }
-.project-card:is(:hover, :focus-visible) .demo-after {
-  opacity: 1;
-  transition-delay: 600ms;
-}
-.project-card:is(:hover, :focus-visible) .snorlax-new-file {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 600ms;
-}
+.project-card:is(:hover, :focus-visible) .journal-pen { offset-distance: 100%; }
+.project-card:is(:hover, :focus-visible) .journal-writing { stroke-dashoffset: 0; opacity: 1; }
 
-/* Money is recorded into the ledger; the amount rolls to its new value. */
-.finance-roll {
-  transform: translateY(0);
-  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+/* Snorlax: carry a visible file into the library, then confirm completion. */
+.storage-transfer {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-7deg);
+  transition: transform 700ms var(--demo-ease);
 }
-.finance-entry {
-  transform: translateY(24px);
-  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.finance-pending,
-.finance-saved,
-.clayo-waiting,
-.clayo-screened {
-  transition: opacity 220ms ease;
-}
-.finance-pending,
-.clayo-waiting {
-  opacity: 1;
-}
-.finance-saved,
-.clayo-screened {
+.storage-target { transition: opacity 250ms ease; }
+.storage-transfer-progress { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 700ms ease-in-out; }
+.project-card:is(:hover, :focus-visible) .storage-transfer { transform: translate(50px, -38px) rotate(0deg); }
+.project-card:is(:hover, :focus-visible) .storage-target { opacity: 0; transition-delay: 450ms; }
+.project-card:is(:hover, :focus-visible) .storage-transfer-progress { stroke-dashoffset: 0; }
+.project-card:is(:hover, :focus-visible) .storage-transfer-status :is(.before, .result) { transition-delay: 640ms; }
+
+/* Clayo sorts its call inbox, keeping useful calls together and moving spam down. */
+.clayo-inbox-row { transition: transform 640ms var(--demo-ease), opacity 300ms ease; }
+.clayo-row-pending, .clayo-row-block { transition: opacity 180ms ease; }
+.clayo-row-block { opacity: 0; }
+.clayo-row-check, .clayo-spam-strike {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   opacity: 0;
+  transition: stroke-dashoffset 260ms ease, opacity 150ms ease;
 }
-.project-card:is(:hover, :focus-visible) .finance-entry {
-  transform: translateY(0);
-}
-.project-card:is(:hover, :focus-visible) .finance-roll {
-  transform: translateY(-32px);
-  transition-delay: 200ms;
-}
-.project-card:is(:hover, :focus-visible) .finance-pending {
-  opacity: 0;
-  transition-delay: 450ms;
-}
-.project-card:is(:hover, :focus-visible) .finance-saved {
-  opacity: 1;
-  transition-delay: 450ms;
-}
-/* Clayo answers, receives the caller's reason, then forwards the call. */
-.clayo-incoming {
-  transform: translateY(0);
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.clayo-question,
-.clayo-answer,
-.clayo-forwarded {
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 220ms ease,
-    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.project-card:is(:hover, :focus-visible) .clayo-incoming {
-  transform: translateY(-26px);
-}
-.project-card:is(:hover, :focus-visible) .clayo-question {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 180ms;
-}
-.project-card:is(:hover, :focus-visible) .clayo-answer {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 550ms;
-}
-.project-card:is(:hover, :focus-visible) .clayo-forwarded {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 950ms;
-}
-.project-card:is(:hover, :focus-visible) .clayo-waiting {
-  opacity: 0;
-  transition-delay: 950ms;
-}
-.project-card:is(:hover, :focus-visible) .clayo-screened {
-  opacity: 1;
-  transition-delay: 950ms;
+.project-card:is(:hover, :focus-visible) .clayo-inbox-spam { transform: translateY(35px); opacity: .55; }
+.project-card:is(:hover, :focus-visible) .clayo-inbox-family { transform: translateY(-35px); transition-delay: 60ms; }
+.project-card:is(:hover, :focus-visible) .clayo-row-pending { opacity: 0; transition-delay: 300ms; }
+.project-card:is(:hover, :focus-visible) .clayo-row-check { stroke-dashoffset: 0; opacity: 1; transition-delay: 350ms; }
+.project-card:is(:hover, :focus-visible) .clayo-inbox-family .clayo-row-check { transition-delay: 450ms; }
+.project-card:is(:hover, :focus-visible) .clayo-row-block { opacity: 1; transition-delay: 400ms; }
+.project-card:is(:hover, :focus-visible) .clayo-spam-strike { stroke-dashoffset: 0; opacity: 1; transition-delay: 400ms; }
+@media (prefers-reduced-motion: reduce) {
+  .project-art * { animation: none !important; transition: none !important; }
 }

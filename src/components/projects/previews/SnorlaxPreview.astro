@@ -1,101 +1,27 @@
 <svg viewBox="0 0 320 256" fill="none" aria-hidden="true" class="project-art">
-  <g>
-    <path
-      d="M71 58a6 6 0 0 1 6-6h47l13 10h105a6 6 0 0 1 6 6v113H71z"
-      fill="var(--preview-fill)"
-      stroke="var(--preview-line)"
-    />
+  <g transform="translate(-17 0)">
+  <rect x="91" y="65" width="172" height="125" rx="9" fill="white" stroke="var(--art-border)"/>
+  <text x="107" y="88" font-size="11" fill="#555">My files</text>
+  <path d="M91 100h172" stroke="#ededed"/>
+  <path d="M232 87h11a4 4 0 0 0 0-8 6 6 0 0 0-11-1 4.5 4.5 0 0 0 0 9Z" stroke="#aaa" stroke-width="1"/>
+  <g transform="translate(-14 2)">
+    <rect class="storage-target" x="136" y="109" width="47" height="54" rx="4" stroke="#ccc" stroke-dasharray="3 3"/>
+    <path d="M199 127v-9h12l5 5h26v37h-43z" fill="#f1f1f1" stroke="#ddd"/>
+    <path d="M199 130h43" stroke="#ddd"/>
+    <path d="M140 174h39m24 0h34" stroke="#e6e6e6" stroke-width="2" stroke-linecap="round"/>
   </g>
-  <g class="preview-window">
-    <rect
-      x="39"
-      y="77"
-      width="243"
-      height="128"
-      rx="8"
-      fill="var(--preview-paper)"
-      stroke="var(--preview-line)"
-    />
-    <path d="M39 96h243M90 96v109" stroke="var(--preview-fill)" />
-    <g fill="var(--preview-line)">
-      <circle cx="49" cy="86" r="2" />
-      <circle cx="56" cy="86" r="2" />
-      <circle cx="63" cy="86" r="2" />
-    </g>
-    <rect x="192" y="82" width="78" height="8" rx="4" fill="var(--preview-wash)" />
-    <g stroke="var(--preview-line)" stroke-width="2" stroke-linecap="round">
-      <path d="M49 111h30M49 123h22M49 135h26" />
-    </g>
-    <rect x="216" y="107" width="55" height="61" rx="4" fill="var(--preview-wash)" />
-    <path d="m222 154 12-17 9 10 10-20 12 27z" fill="var(--preview-line)" />
-    <circle cx="229" cy="121" r="5" fill="var(--preview-paper)" />
-    <path
-      d="M218 179h47M218 185h32M218 191h40"
-      stroke="var(--preview-line)"
-      stroke-linecap="round"
-    />
-    <g>
-      <path d="M105 108h20l8 8v24h-28z" fill="var(--preview-fill)" stroke="var(--preview-line)" />
-      <path d="M125 108v8h8" stroke="var(--preview-line)" />
-      <path d="M111 124h16M111 129h11" stroke="var(--preview-mid)" />
-      <path d="M107 147h24" stroke="var(--preview-line)" stroke-linecap="round" />
-    </g>
-    <g>
-      <path
-        d="M156 117a3 3 0 0 1 3-3h9l4 4h15a3 3 0 0 1 3 3v19h-34z"
-        fill="var(--preview-line)"
-        stroke="var(--preview-line)"
-      />
-      <path d="M156 122h34" stroke="var(--preview-line)" />
-      <path d="M160 147h26" stroke="var(--preview-line)" stroke-linecap="round" />
-    </g>
-    <g>
-      <path d="M105 160h20l8 8v24h-28z" fill="var(--preview-fill)" stroke="var(--preview-line)" />
-      <path d="M125 160v8h8" stroke="var(--preview-line)" />
-      <path d="m109 185 6-8 5 5 4-7 5 10z" fill="var(--preview-line)" />
-    </g>
-    <rect
-      x="156"
-      y="160"
-      width="34"
-      height="32"
-      rx="3"
-      stroke="var(--preview-fill)"
-      stroke-dasharray="2 3"
-    />
-    <g class="snorlax-new-file">
-      <path d="M159 160h20l9 9v23h-29z" fill="var(--preview-wash)" stroke="var(--preview-line)" />
-      <path d="M179 160v9h9" stroke="var(--preview-line)" />
-      <path d="m163 186 7-9 5 6 4-5 5 8z" fill="var(--preview-mid)" />
-    </g>
   </g>
-  <g class="preview-window">
-    <circle cx="262" cy="193" r="17" fill="var(--preview-paper)" stroke="var(--preview-fill)" />
-    <circle
-      class="demo-progress"
-      cx="262"
-      cy="193"
-      r="17"
-      stroke="var(--preview-detail)"
-      stroke-width="1.3"
-      pathLength="1"
-      transform="rotate(-90 262 193)"
-    />
-    <path
-      class="demo-before"
-      d="M262 200v-14m-5 5 5-5 5 5M255 201h14"
-      stroke="var(--preview-detail)"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      class="demo-after"
-      d="m255 193 5 5 9-10"
-      stroke="var(--preview-ink)"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+  <!-- A visible file starts outside the library and travels into its destination. -->
+  <g class="storage-transfer">
+    <path d="M59 151h28l12 12v39H59z" fill="white" stroke="#d5d5d5"/>
+    <path d="M87 151v12h12" fill="#f4f4f4" stroke="#d5d5d5"/>
+    <circle cx="87" cy="174" r="3" fill="#c4c4c4"/>
+    <path d="m64 191 9-12 7 8 5-6 9 10" stroke="#aaa" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g class="storage-transfer-status" transform="translate(-17 0)">
+    <circle cx="248" cy="187" r="14" fill="white" stroke="var(--art-border)"/>
+    <circle class="storage-transfer-progress" cx="248" cy="187" r="14" stroke="#aaa" stroke-width="1" pathLength="1" transform="rotate(-90 248 187)"/>
+    <path class="before" d="M248 193v-12m-4 4 4-4 4 4" stroke="#777" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="result" d="m242 187 4 4 8-9" stroke="#777" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>

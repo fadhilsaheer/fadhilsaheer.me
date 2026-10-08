@@ -1,101 +1,34 @@
 <svg viewBox="0 0 320 256" fill="none" aria-hidden="true" class="project-art">
-  <g class="preview-shadow">
-    <rect
-      x="103"
-      y="29"
-      width="114"
-      height="200"
-      rx="23"
-      fill="var(--preview-paper)"
-      stroke="var(--preview-line)"
-      stroke-width="2"
-    />
-    <rect x="142" y="39" width="36" height="5" rx="2.5" fill="var(--preview-ink)" />
-    <text
-      x="160"
-      y="66"
-      text-anchor="middle"
-      font-size="10"
-      font-weight="500"
-      fill="var(--preview-ink)"
-    >
-      clayo.ai
-    </text>
-    <path
-      d="M143 218h34"
-      stroke="var(--preview-line)"
-      stroke-width="3"
-      stroke-linecap="round"
-    />
-  </g>
-  <g class="clayo-incoming preview-shadow">
-    <rect
-      x="66"
-      y="107"
-      width="188"
-      height="47"
-      rx="10"
-      fill="var(--preview-paper)"
-      stroke="var(--preview-fill)"
-    />
-    <circle cx="88" cy="130" r="12" fill="var(--preview-wash)" />
-    <path d="m83 123-3 3c1 7 6 12 13 13l3-3-5-4-2 2-5-5 2-2z" fill="var(--preview-detail)" />
-    <text
-      class="clayo-waiting"
-      x="109"
-      y="127"
-      font-size="9"
-      font-weight="500"
-      fill="var(--preview-ink)"
-    >
-      Unknown caller
-    </text>
-    <text class="clayo-waiting" x="109" y="139" font-size="7" fill="var(--preview-detail)">
-      Incoming call
-    </text>
-    <text
-      class="clayo-screened"
-      x="109"
-      y="127"
-      font-size="9"
-      font-weight="500"
-      fill="var(--preview-ink)"
-    >
-      Delivery
-    </text>
-    <text class="clayo-screened" x="109" y="139" font-size="7" fill="var(--preview-detail)">
-      Important call
-    </text>
-  </g>
-  <g class="clayo-question">
-    <path
-      d="M77 138h113a7 7 0 0 1 7 7v10a7 7 0 0 1-7 7H77l-7 4v-21a7 7 0 0 1 7-7z"
-      fill="var(--preview-wash)"
-    />
-    <text x="83" y="153" font-size="7" fill="var(--preview-muted)">
-      Clayo: Who’s calling?
-    </text>
-  </g>
-  <g class="clayo-answer">
-    <path
-      d="M126 169h114a7 7 0 0 1 7 7v21l-7-4H126a7 7 0 0 1-7-7v-10a7 7 0 0 1 7-7z"
-      fill="var(--preview-paper)"
-      stroke="var(--preview-fill)"
-    />
-    <text x="130" y="184" font-size="7" fill="var(--preview-muted)">
-      Your delivery is here.
-    </text>
-  </g>
-  <g class="clayo-forwarded">
-    <rect x="116" y="201" width="88" height="13" rx="6.5" fill="var(--preview-ink)" />
-    <path
-      d="m125 207 2 2 4-4"
-      stroke="var(--preview-paper)"
-      stroke-width="1"
-      stroke-linecap="round"
-    />
-    <text x="137" y="210" font-size="5.5" fill="var(--preview-paper)">
-      Call forwarded
-    </text>
+  <!-- A small call inbox: useful calls rise together; spam is set aside. -->
+  <rect x="58" y="55" width="204" height="148" rx="10" fill="white" stroke="var(--art-border)"/>
+  <g transform="translate(0 -8)">
+    <path d="M75 79q0 5-5 5 5 0 5 5 0-5 5-5-5 0-5-5Z" fill="#888"/>
+    <text x="88" y="88" font-size="11" font-weight="500" fill="#555">Clayo</text>
+    <path d="M72 98h176" stroke="#eee"/>
+
+    <g class="clayo-inbox-row clayo-inbox-allowed">
+      <circle cx="81" cy="116" r="10" fill="#f6f6f6"/>
+      <path d="m77 111-2 2c1 5 4 8 9 9l2-2-3-3-2 1-3-3 1-2z" fill="#999"/>
+      <text x="102" y="120" font-size="12" fill="#666">Delivery</text>
+      <path class="clayo-row-pending" d="M231 116h9m-3-3 3 3-3 3" stroke="#bbb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="clayo-row-check" d="m230 116 4 4 7-8" stroke="#777" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/>
+    </g>
+
+    <g class="clayo-inbox-row clayo-inbox-spam">
+      <circle cx="81" cy="151" r="10" fill="#f6f6f6"/>
+      <path d="m77 146-2 2c1 5 4 8 9 9l2-2-3-3-2 1-3-3 1-2z" fill="#999"/>
+      <text x="102" y="155" font-size="12" fill="#888">Unknown caller</text>
+      <path class="clayo-spam-strike" d="M101 152h89" stroke="#aaa" stroke-width=".9" pathLength="1"/>
+      <path class="clayo-row-pending" d="M231 151h9m-3-3 3 3-3 3" stroke="#bbb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="clayo-row-block" stroke="#999" stroke-width="1.1"><circle cx="236" cy="151" r="5"/><path d="m232.5 147.5 7 7"/></g>
+    </g>
+
+    <g class="clayo-inbox-row clayo-inbox-family">
+      <circle cx="81" cy="186" r="10" fill="#f6f6f6"/>
+      <path d="m77 181-2 2c1 5 4 8 9 9l2-2-3-3-2 1-3-3 1-2z" fill="#999"/>
+      <text x="102" y="190" font-size="12" fill="#666">Family</text>
+      <path class="clayo-row-pending" d="M231 186h9m-3-3 3 3-3 3" stroke="#bbb" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="clayo-row-check" d="m230 186 4 4 7-8" stroke="#777" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/>
+    </g>
   </g>
 </svg>
