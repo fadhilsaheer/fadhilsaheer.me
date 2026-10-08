@@ -1,6 +1,7 @@
 ---
 import { ClientRouter, fade } from "astro:transitions";
 import "../styles/global.css";
+import dmSans from "../assets/fonts/dm-sans-latin.woff2?url";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -23,12 +24,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
-    />
+    <link rel="preload" href={dmSans} as="font" type="font/woff2" crossorigin />
     <ClientRouter />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
@@ -72,7 +68,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       rel="icon"
       href="/favicon.png"
       type="image/png"
-      sizes="128x128"
+      sizes="32x32"
     />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script>

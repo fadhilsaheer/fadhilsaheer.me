@@ -3,7 +3,8 @@
   class="reveal mt-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pt-20 text-xs leading-normal text-subtle"
 >
   <local-clock class="flex items-center gap-1">
-    <time class="inline-flex shrink-0 whitespace-nowrap tabular-nums" aria-label="Loading local time">
+    <time class="inline-flex shrink-0 whitespace-nowrap tabular-nums">
+      <span data-readable-time class="sr-only">Loading local time</span>
       {Array.from("--:--:--", (character) => (
         <span aria-hidden="true" class={character === ":" ? "inline-block w-[0.24em] text-center" : "inline-block w-[0.6em] text-center"}>
           {character}
@@ -23,9 +24,10 @@
 
     connectedCallback() {
       const time = this.querySelector("time");
-      const digits = time?.querySelectorAll("span");
+      const digits = time?.querySelectorAll("span[aria-hidden]");
+      const readableTime = time?.querySelector("[data-readable-time]");
       const timezoneDiff = this.querySelector("[data-timezone-diff]");
-      if (!time || !digits || !timezoneDiff) return;
+      if (!time || !digits || !timezoneDiff || !readableTime) return;
       const format = new Intl.DateTimeFormat("en-GB", {
         timeZone: "Asia/Kolkata",
         hour: "2-digit",
@@ -37,7 +39,7 @@
         const now = new Date();
         time.dateTime = now.toISOString();
         const formattedTime = format.format(now);
-        time.setAttribute("aria-label", formattedTime);
+        readableTime.textContent = `${formattedTime} in Kolkata`;
         digits.forEach((digit, index) => {
           digit.textContent = formattedTime[index];
         });

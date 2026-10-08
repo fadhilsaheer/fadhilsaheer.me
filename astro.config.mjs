@@ -7,6 +7,7 @@ export default defineConfig({
   site: "https://fadhilsaheer.me",
   trailingSlash: "always",
   prefetch: { prefetchAll: true, defaultStrategy: "viewport" },
+  build: { inlineStylesheets: "always" },
   integrations: [react()],
   server: { port: 3000 },
   devToolbar: { enabled: false },

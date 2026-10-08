@@ -1,4 +1,4 @@
-export {};
+import spriteUrl from "../assets/favicon/snorlax-frames.webp?url";
 
 const restingIcon = "/favicon.png";
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -21,7 +21,8 @@ function stop() {
 function prepareFrames() {
   return (loading ??= (async () => {
     const sprite = new Image();
-    sprite.src = "/favicons/snorlax-frames.png?v=front-facing";
+    sprite.fetchPriority = "low";
+    sprite.src = spriteUrl;
     await sprite.decode();
     const canvas = document.createElement("canvas");
     const frameSize = sprite.naturalHeight;
@@ -70,13 +71,13 @@ function start() {
     const began = performance.now();
     const animate = () => {
       const elapsed = performance.now() - began;
-      const frame = (Math.floor(elapsed / 40) + 14) % faviconFrames.length;
+      const frame = (Math.floor(elapsed / 80) + 7) % faviconFrames.length;
       const link = icon();
       if (link) link.href = faviconFrames[frame];
-      timer = setTimeout(animate, 40);
+      timer = setTimeout(animate, 80);
     };
     animate();
-  }, 700);
+  }, 2500);
 }
 
 document.addEventListener("astro:before-swap", stop);

@@ -1,8 +1,7 @@
-import { mkdir } from "node:fs/promises";
 import sharp from "sharp";
 
 const output = new URL("../public/", import.meta.url);
-const size = 128;
+const size = 32;
 const framesPerCharacter = 100;
 const ease = (t) => (1 - Math.cos(Math.PI * Math.max(0, Math.min(1, t)))) / 2;
 
@@ -51,7 +50,6 @@ function portrait(character, offset = 0, raised = 0, wave = 0) {
   </svg>`;
 }
 
-await mkdir(new URL("favicons/", output), { recursive: true });
 const resting = portrait("snorlax");
 await sharp(Buffer.from(resting))
   .resize(size, size)
@@ -64,8 +62,8 @@ await sharp(Buffer.from(resting))
 
 const frames = [];
 for (const character of ["snorlax", "pikachu"]) {
-  for (let frame = 0; frame < framesPerCharacter; frame++) {
-    // 25 fps: arrive with the paw down, pause, lift, wave, lower, pause, exit.
+  for (let frame = 0; frame < framesPerCharacter; frame += 2) {
+    // Sample every other frame (12.5 fps): arrive with the paw down, pause, lift, wave, lower, pause, exit.
     const offset =
       frame < 14 ? 66 * (1 - ease(frame / 14)) : 66 * ease((frame - 82) / 12);
     const lift = ease((frame - 20) / 12);
@@ -93,5 +91,5 @@ await sharp({
   .composite(
     frames.map((input, index) => ({ input, left: index * size, top: 0 })),
   )
-  .png()
-  .toFile(new URL("favicons/snorlax-frames.png", output).pathname);
+  .webp({ lossless: true })
+  .toFile(new URL("../src/assets/favicon/snorlax-frames.webp", import.meta.url).pathname);
