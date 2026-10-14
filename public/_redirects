@@ -1,0 +1,9 @@
+# Legacy detail links now land on homepage sections.
+/projects /#projects 301
+/projects/ /#projects 301
+/experience /#experience 301
+/experience/ /#experience 301
+/ventures /#ventures 301
+/ventures/ /#ventures 301
+/contact /#contact 301
+/contact/ /#contact 301

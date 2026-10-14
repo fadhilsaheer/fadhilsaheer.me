@@ -85,7 +85,7 @@ The small pixel trainer supplies the personal character before the introduction.
 
 ## Colors
 
-The palette is neutral and light, with near-black emphasis and two gray text roles. There is no interface accent color; the trainer and existing logos retain their asset colors.
+The palette is neutral and light, with near-black emphasis and two gray text roles. The canvas is plain white, with no decorative background. The trainer and existing logos retain their asset colors.
 
 ### Neutral
 - **Paper** is the page canvas.
@@ -110,7 +110,7 @@ Homepage paragraphs are separated by 24px. Subpage return navigation and page he
 
 The project gallery stays inside the existing reading column: two equal columns from a 360px viewport, one below it, with 16px column gaps and 32px row gaps. Each preview is 5:4; captions sit 8px below, with the title and year sharing a baseline and a 13px description 4px beneath. The text-only “More projects” section starts 48px after the gallery.
 
-The homepage contains the introduction, inline prose links to the page sections, then projects, experience, ventures, and contact. The first section starts 80px after the introduction; subsequent sections have a 64px top margin, a faint top rule, and 48px top padding. Section headings have 28px bottom spacing and retain modest typography. Anchors have 40px scroll clearance. The footer pairs the local clock with the original SVG signature restored from commit `30e4db6`. Legacy detail routes redirect to matching homepage anchors. Do not add a sidebar or a wide multi-column grid to this composition.
+The homepage contains the introduction, inline prose links to the page sections on desktop and a four-link navigation row below the shorter intro on mobile, then projects, experience, ventures, and contact. The first section starts 80px after the introduction; subsequent sections have a 64px top margin, a faint top rule, and 48px top padding. Section headings have 28px bottom spacing and retain modest typography. Anchors have 40px scroll clearance. The footer pairs the local clock with the original SVG signature restored from commit `30e4db6`. Legacy detail routes redirect to matching homepage anchors. Do not add a sidebar or a wide multi-column grid to this composition.
 
 ## Elevation & Depth
 
