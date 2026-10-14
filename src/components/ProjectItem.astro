@@ -23,7 +23,7 @@ const platformLabel = platform.charAt(0) + platform.slice(1).toLowerCase();
     class="list-link group"
   >
     <div class="flex items-baseline justify-between gap-4">
-      <h2 class="flex items-center gap-1 font-medium text-heading">
+      <h3 class="flex items-center gap-1 font-medium text-heading">
         {logo && (
           <Logo
             src={logo}
@@ -36,7 +36,7 @@ const platformLabel = platform.charAt(0) + platform.slice(1).toLowerCase();
         )}
         {title}
         <Arrow class="size-3 text-subtle transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-      </h2>
+      </h3>
       {year && (
         <span class="shrink-0 text-xs tabular-nums text-subtle">{year}</span>
       )}

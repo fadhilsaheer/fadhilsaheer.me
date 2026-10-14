@@ -16,7 +16,7 @@ Existing Astro site with small, typed, reusable Astro components and Tailwind CS
 
 ## Brand Commitments
 
-The user requested Lucas Marques's website as the design reference, including its white/gray color theme, animation, and subpage approach. Use DM Sans. Feature the user's custom pixel trainer avatar on the homepage. Work on the `new-design` branch.
+The user requested Lucas Marques's website as the design reference, including its white/gray color theme and animation. The current direction consolidates all content into a single scrolling page with section anchors and viewport reveals. Use DM Sans. Feature the user's custom pixel trainer avatar on the homepage. The single-page conversion is on `codex/single-page-portfolio`.
 
 ## Evidence on Hand
 

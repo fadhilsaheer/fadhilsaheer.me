@@ -1,8 +1,6 @@
 ---
-import { ClientRouter, fade } from "astro:transitions";
 import "../styles/global.css";
 import dmSans from "../assets/fonts/dm-sans-latin.woff2?url";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
@@ -25,7 +23,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" href={dmSans} as="font" type="font/woff2" crossorigin />
-    <ClientRouter />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="application-name" content="fadhilsaheer" />
@@ -74,10 +71,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <script>
       import "../scripts/favicon";
 
-      // Keep the entrance on first load; subsequent pages use the short crossfade.
-      document.addEventListener("astro:before-swap", (event) => {
-        event.newDocument.body.dataset.clientNavigation = "true";
-      });
+      import "../scripts/reveal";
     </script>
     <meta name="theme-color" content="#ffffff" />
   </head>
@@ -90,11 +84,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </a>
     <div
       class="mx-auto flex min-h-svh w-full max-w-[560px] flex-col px-6 pb-8 pt-12 sm:px-[60px] sm:pb-9 sm:pt-[88px]"
-      transition:name="page-content"
-      transition:animate={fade({ duration: "160ms" })}
     >
       <main id="content" tabindex="-1" class="outline-none">
-        {title && <Header />}
         <slot />
       </main>
       <Footer />

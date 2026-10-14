@@ -74,7 +74,7 @@ components:
 
 A white, gray, typography-first portfolio follows the user-pinned Lucas Marques reference. DM Sans, a narrow reading column, inline links, and borderless work lists keep the attention on the person and their work. This confirmed reference takes precedence over the earlier generated seed 76e6068a.
 
-The small pixel trainer supplies the personal character before the introduction. Motion is restrained: content rises a little through a brief blur, links change quietly, and page changes fade. The implementation remains Astro components with Tailwind; React is confined to the page-mascot island.
+The small pixel trainer supplies the personal character before the introduction. Motion is restrained: content rises a little through a brief blur, links change quietly, and each item reveals once as it enters the viewport. The implementation remains Astro components with Tailwind; React is confined to the page-mascot island.
 
 **Key Characteristics:**
 - White canvas and a compact reading column.
@@ -110,13 +110,13 @@ Homepage paragraphs are separated by 24px. Subpage return navigation and page he
 
 The project gallery stays inside the existing reading column: two equal columns from a 360px viewport, one below it, with 16px column gaps and 32px row gaps. Each preview is 5:4; captions sit 8px below, with the title and year sharing a baseline and a 13px description 4px beneath. The text-only “More projects” section starts 48px after the gallery.
 
-The homepage links inline to projects, experience, ventures, and contact. Each of those four subpages shares the return link, modest heading, and footer. Do not add a sidebar or a wide multi-column grid to this composition.
+The homepage contains the introduction, inline prose links to the page sections, then projects, experience, ventures, and contact. The first section starts 80px after the introduction; subsequent sections have a 64px top margin, a faint top rule, and 48px top padding. Section headings have 28px bottom spacing and retain modest typography. Anchors have 40px scroll clearance. The footer pairs the local clock with the original SVG signature restored from commit `30e4db6`. Legacy detail routes redirect to matching homepage anchors. Do not add a sidebar or a wide multi-column grid to this composition.
 
 ## Elevation & Depth
 
 The surrounding interface remains flat. Project SVG previews use neutral objects with fine outlines, generous empty space, and no shadows. Illustration accents are grayscale too. Whitespace and text tone separate content. List surfaces are transparent at rest and acquire the wash color on hover or keyboard focus; they are not permanent cards.
 
-Entrances last 560ms with the soft ease recorded in the sidecar, moving from 8px below with 3px blur and zero opacity to the settled state. List delays range from 80ms to 280ms in 40ms increments. Page transitions fade the content and footer together over 160ms. The footer also joins the entrance sequence with a 240ms delay. Link transitions last 200ms; external arrows move 2px up and right on row hover. Reduced-motion CSS removes animations and transitions, including view transitions.
+Entrances last 560ms with the soft ease recorded in the sidecar, moving from 8px below with 3px blur and zero opacity to the settled state. List delays range from 80ms to 280ms in 40ms increments. IntersectionObserver triggers each entrance once on viewport entry, with a 24px bottom inset. Content is visible without JavaScript; reduced motion and keyboard focus bypass hidden states. Anchor navigation scrolls smoothly unless reduced motion is enabled. The footer also joins the entrance sequence with a 240ms delay. Link transitions last 200ms; external arrows move 2px up and right on row hover. Reduced-motion CSS removes animations and transitions, including view transitions.
 
 ## Shapes
 

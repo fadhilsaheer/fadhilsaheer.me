@@ -18,7 +18,7 @@ const { period, title, company, companyUrl, companyLogo, description } =
     <p class="experience-detail mb-2 text-xs tabular-nums text-subtle">
       {period}
     </p>
-    <h2 class="font-medium text-heading">
+    <h3 class="font-medium text-heading">
       <span class="experience-detail">{title} at</span>{" "}
       <ExternalLink href={companyUrl}>
         <img
@@ -31,7 +31,7 @@ const { period, title, company, companyUrl, companyLogo, description } =
         />
         {company}
       </ExternalLink>
-    </h2>
+    </h3>
     <p class="experience-detail mt-2 text-muted">{description}</p>
   </div>
 </li>

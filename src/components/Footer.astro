@@ -1,3 +1,7 @@
+---
+import Signature from "./Signature.astro";
+---
+
 <footer
   style="--reveal-delay: 240ms"
   class="reveal mt-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pt-20 text-xs leading-normal text-subtle"
@@ -13,9 +17,7 @@
     </time>
     <span data-timezone-diff></span>
   </local-clock>
-  <a href="/" class="transition-colors duration-200 hover:text-heading">
-    fadhilsaheer.me
-  </a>
+  <Signature />
 </footer>
 
 <script>

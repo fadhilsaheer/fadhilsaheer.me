@@ -1,8 +1,29 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Experience from "../components/Experience.astro";
+import Ventures from "../components/Ventures.astro";
+import Contact from "../components/Contact.astro";
+import "../styles/project-previews.css";
+
+const sections = [
+  { id: "projects", title: "Projects", description: "Things I’ve built, shipped, and learned from.", Component: Projects },
+  { id: "experience", title: "Experience", description: "From startup products to enterprise platforms.", Component: Experience },
+  { id: "ventures", title: "Ventures", description: "Products and a studio I’m building.", Component: Ventures },
+  { id: "contact", title: "Get in touch", description: "Always up to meet new people and talk ideas.", Component: Contact },
+];
 ---
 
 <SiteLayout>
   <About />
+  {sections.map(({ id, title, description, Component }) => (
+    <section id={id} aria-labelledby={`${id}-title`} class="portfolio-section" tabindex="-1">
+      <header class="section-heading reveal">
+        <h2 id={`${id}-title`} class="font-medium text-heading">{title}</h2>
+        <p class="mt-1 text-muted">{description}</p>
+      </header>
+      <Component />
+    </section>
+  ))}
 </SiteLayout>

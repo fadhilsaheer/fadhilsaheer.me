@@ -23,6 +23,7 @@
 @layer base {
   html {
     color-scheme: light;
+    scroll-behavior: smooth;
     scrollbar-color: #d4d4d8 var(--color-paper);
     scrollbar-width: thin;
   }
@@ -189,13 +190,32 @@
     image-rendering: pixelated;
   }
 
-  .reveal {
-    animation: arrive 560ms var(--ease-out-soft) both;
-    animation-delay: var(--reveal-delay, 0ms);
+  .portfolio-section {
+    margin-top: 80px;
+    scroll-margin-top: 40px;
+    outline: none;
   }
 
-  [data-client-navigation] .reveal {
-    animation: none;
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .portfolio-section + .portfolio-section {
+    border-top: 1px solid var(--color-wash);
+    padding-top: 48px;
+    margin-top: 64px;
+  }
+
+  /* Content is visible without JavaScript. Only observed elements are hidden. */
+  .reveal[data-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+
+  .reveal[data-reveal="visible"] {
+    animation: arrive 560ms var(--ease-out-soft) both;
+    animation-delay: var(--reveal-delay, 0ms);
   }
 
   .reveal-list > :nth-child(1) {
@@ -232,6 +252,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .reveal[data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
   *,
   *::before,
   *::after {
